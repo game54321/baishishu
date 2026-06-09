@@ -3,6 +3,27 @@ extends Control
 
 var map_view: Control = null
 
+const DASH_LENGTH := 10.0
+const GAP_LENGTH := 6.0
+
+
+func _draw_dashed_line(from: Vector2, to: Vector2, color: Color, width: float) -> void:
+	var dir := (to - from)
+	var total_length := dir.length()
+	if total_length < 1.0:
+		return
+	dir = dir.normalized()
+	var drawn := 0.0
+	var drawing := true
+	while drawn < total_length:
+		var seg_len := DASH_LENGTH if drawing else GAP_LENGTH
+		var end := minf(drawn + seg_len, total_length)
+		if drawing:
+			draw_line(from + dir * drawn, from + dir * end, color, width, true)
+		drawn = end
+		drawing = not drawing
+
+
 func _draw() -> void:
 	if not map_view:
 		return
@@ -27,16 +48,16 @@ func _draw() -> void:
 		var width: float
 
 		if from_visited and to_visited:
-			color = Color(0.5, 0.85, 0.5, 0.9)
+			color = Color(0.15, 0.15, 0.15, 0.9)
 			width = 3.0
 		elif is_reachable:
-			color = Color(1.0, 0.9, 0.3, 0.9)
+			color = Color(0.1, 0.1, 0.1, 0.95)
 			width = 3.0
 		else:
-			color = Color(0.8, 0.8, 0.8, 0.8)
+			color = Color(0.2, 0.2, 0.2, 0.6)
 			width = 2.0
 
-		draw_line(from_pos, to_pos, color, width, true)
+		_draw_dashed_line(from_pos, to_pos, color, width)
 
 		# 绘制箭头（截止在节点边缘）
 		const NODE_RADIUS := 32.0

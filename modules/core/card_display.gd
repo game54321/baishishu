@@ -120,7 +120,10 @@ func _update() -> void:
 			icon_rect.visible = false
 			icon_label.visible = false
 	if name_label:
-		name_label.text = card_name
+		if count_unit != "" and card_name != "":
+			name_label.text = ""
+		else:
+			name_label.text = card_name
 	if count_label:
 		if count_text != "":
 			count_label.text = count_text

@@ -21,7 +21,7 @@
     "category": "currency",
     "stackable": true,
     "maxValue": 9999,
-    "unit": "两"
+    "unit": "银两"
   },
   {
     "id": "功法",

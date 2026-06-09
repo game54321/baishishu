@@ -2,21 +2,18 @@ extends Control
 ## 游戏开始界面
 
 const MAP_VIEW_PATH := "res://modules/map/map_view.tscn"
-const BG_PATH := "res://assets/chapter/1/bg.png"
+const BG_PATH := "res://assets/ui/title/bg.png"
 
 @onready var bg_rect: TextureRect = $BgRect
-@onready var btn_start: Button = $VBox/BtnStart
-@onready var btn_continue: Button = $VBox/BtnContinue
+@onready var btn_start: TextureButton = $VBox/BtnStart
+@onready var btn_continue: TextureButton = $VBox/BtnContinue
+@onready var anim_player: AnimationPlayer = $AnimPlayer
 
 
 func _ready() -> void:
 	# 加载背景图
 	if ResourceLoader.exists(BG_PATH):
 		bg_rect.texture = load(BG_PATH)
-
-	# 按钮样式
-	_style_button(btn_start)
-	_style_button(btn_continue)
 
 	# 无存档时旧的回忆按钮置灰
 	if not SaveManager.has_save():
@@ -25,6 +22,10 @@ func _ready() -> void:
 
 	btn_start.pressed.connect(_on_start_pressed)
 	btn_continue.pressed.connect(_on_continue_pressed)
+
+	# 播放入场动画，结束后切换到idle循环
+	anim_player.play("entrance")
+	anim_player.animation_finished.connect(_on_entrance_finished)
 
 
 func _on_start_pressed() -> void:
@@ -42,31 +43,5 @@ func _switch_to_game() -> void:
 	get_tree().change_scene_to_file(MAP_VIEW_PATH)
 
 
-func _style_button(btn: Button) -> void:
-	var cs := StyleBoxFlat.new()
-	cs.bg_color = Color(0.9, 0.9, 0.9, 1.0)
-	cs.corner_radius_top_left = 4
-	cs.corner_radius_top_right = 4
-	cs.corner_radius_bottom_left = 4
-	cs.corner_radius_bottom_right = 4
-	cs.content_margin_top = 10
-	cs.content_margin_bottom = 10
-	cs.content_margin_left = 24
-	cs.content_margin_right = 24
-	btn.add_theme_stylebox_override("normal", cs)
-
-	var cs_h := StyleBoxFlat.new()
-	cs_h.bg_color = Color(1.0, 1.0, 1.0, 1.0)
-	cs_h.corner_radius_top_left = 4
-	cs_h.corner_radius_top_right = 4
-	cs_h.corner_radius_bottom_left = 4
-	cs_h.corner_radius_bottom_right = 4
-	cs_h.content_margin_top = 10
-	cs_h.content_margin_bottom = 10
-	cs_h.content_margin_left = 24
-	cs_h.content_margin_right = 24
-	btn.add_theme_stylebox_override("hover", cs_h)
-
-	btn.add_theme_color_override("font_color", Color(0.1, 0.1, 0.1, 1.0))
-	btn.add_theme_color_override("font_hover_color", Color(0.0, 0.0, 0.0, 1.0))
-	btn.add_theme_color_override("font_pressed_color", Color(0.3, 0.3, 0.3, 1.0))
+func _on_entrance_finished(_anim_name: String) -> void:
+	anim_player.play("idle")

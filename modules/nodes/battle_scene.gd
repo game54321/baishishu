@@ -14,10 +14,14 @@ var _card_inventory_panel = null
 
 # 敌人数据
 var _enemy_name: String = "山贼"
-var _enemy_hp: int = 50
-var _enemy_max_hp: int = 50
-var _enemy_attack: int = 10
 var _enemy_type: String = "男性凡人"
+var _enemy_realm: String = ""
+var _enemy_count: int = 1
+
+# 多敌人支持
+var _enemies: Array = []       # [{name, hp, max_hp, attack, type, alive}]
+var _enemy_cards: Array = []   # [CharacterCard, ...]
+var _current_enemy_index: int = 0
 
 const PORTRAIT_BASE := "res://assets/立绘"
 const GONGFA_ICON_BASE := "res://assets/功法插图"
@@ -43,7 +47,7 @@ var _turn: int = 1
 var _last_played_card_pos: Vector2 = Vector2.ZERO
 var _battle_stats: Dictionary = {}
 
-@onready var enemy_card: CharacterCard = $Margin/VBox/EnemyCard
+@onready var enemy_area: HBoxContainer = $Margin/VBox/EnemyArea
 @onready var player_card: CharacterCard = $Margin/VBox/BottomSection/PlayerCard
 @onready var hand_section: PanelContainer = $Margin/VBox/BottomSection/HandSection
 @onready var hand_area: HBoxContainer = $Margin/VBox/BottomSection/HandSection/HandVBox/HandArea
@@ -51,19 +55,55 @@ var _battle_stats: Dictionary = {}
 
 
 func _ready() -> void:
-	UITheme.apply_panel(enemy_card)
 	UITheme.apply_panel(player_card)
 	_card_type_map = _build_card_type_map()
 	visible = false
 
 
-func start_battle(inventory_panel, enemy_name: String = "山贼", enemy_hp: int = 50, enemy_attack: int = 10) -> void:
+func start_battle(inventory_panel, enemy_name: String = "山贼", enemy_hp: int = 50, enemy_attack: int = 10, enemy_realm: String = "", enemy_count: int = 1) -> void:
 	_card_inventory_panel = inventory_panel
 	_enemy_name = enemy_name
-	_enemy_hp = enemy_hp
-	_enemy_max_hp = enemy_hp
-	_enemy_attack = enemy_attack
 	_enemy_type = ENEMY_TYPES.get(enemy_name, "男性凡人")
+	_enemy_realm = enemy_realm
+	_enemy_count = maxi(enemy_count, 1)
+
+	# 如果设置了境界，根据境界计算每个敌人的属性
+	var per_enemy_hp: int = enemy_hp
+	var per_enemy_atk: int = enemy_attack
+	if enemy_realm != "":
+		var realms = _card_type_map.get("武道", {}).get("realms", [])
+		var realm_index = realms.find(enemy_realm)
+		if realm_index >= 0:
+			per_enemy_hp = 30 + realm_index * 30
+			per_enemy_atk = 5 + realm_index * 5
+
+	# 构建敌人数组
+	_enemies.clear()
+	for i in range(_enemy_count):
+		_enemies.append({
+			"name": enemy_name,
+			"hp": per_enemy_hp,
+			"max_hp": per_enemy_hp,
+			"attack": per_enemy_atk,
+			"type": _enemy_type,
+			"realm": enemy_realm,
+			"alive": true,
+		})
+	_current_enemy_index = 0
+
+	# 清除旧的敌人卡牌
+	for child in enemy_area.get_children():
+		child.queue_free()
+	_enemy_cards.clear()
+
+	# 为每个敌人创建卡牌
+	for i in range(_enemy_count):
+		var card: CharacterCard = CharacterCardScene.instantiate()
+		enemy_area.add_child(card)
+		UITheme.apply_panel(card)
+		card.hp_bar.color = Color(0.8, 0.2, 0.2)
+		_enemy_cards.append(card)
+
 	_turn = 1
 	_player_hp = 100
 	_player_max_hp = 100
@@ -72,11 +112,17 @@ func start_battle(inventory_panel, enemy_name: String = "山贼", enemy_hp: int 
 			if card["category"] == "武道":
 				_player_hp = 100 + card["realm_index"] * 20
 				_player_max_hp = _player_hp
-	_load_portrait(enemy_card, _enemy_type, "待机")
+
+	# 加载立绘（只加载第一个敌人的肖像作为样板）
+	if _enemy_count > 0:
+		_load_portrait(_enemy_cards[0], _enemy_type, "待机")
+		# 其他敌人用同样的立绘
+		for i in range(1, _enemy_count):
+			_load_portrait(_enemy_cards[i], _enemy_type, "待机")
+
 	_load_portrait(player_card, _player_type, "待机")
-	_refresh_enemy_card()
+	_refresh_enemy_cards()
 	_refresh_player_info()
-	enemy_card.hp_bar.color = Color(0.8, 0.2, 0.2)
 	player_card.hp_bar.color = Color(0.2, 0.4, 0.8)
 	_build_hand()
 	_battle_stats = {
@@ -159,6 +205,46 @@ func _create_fly_card_visual(src: CardDisplay) -> Control:
 	count_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	count_lbl.size = Vector2(src.size.x, 20)
 	count_lbl.position = Vector2(0, src.size.y - 28)
+	box.add_child(count_lbl)
+
+	return box
+
+
+func _create_attack_fly_visual(enemy_name: String, attack_value: int, card_size: Vector2) -> Control:
+	var box := Control.new()
+	box.size = card_size
+
+	var bg := ColorRect.new()
+	bg.color = Color(0.25, 0.08, 0.08, 0.95)
+	bg.size = card_size
+	box.add_child(bg)
+
+	var icon_lbl := Label.new()
+	icon_lbl.text = "⚔"
+	icon_lbl.add_theme_font_size_override("font_size", 32)
+	icon_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	icon_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	icon_lbl.size = Vector2(card_size.x, 50)
+	icon_lbl.position = Vector2(0, 8)
+	box.add_child(icon_lbl)
+
+	var name_lbl := Label.new()
+	name_lbl.text = enemy_name
+	name_lbl.add_theme_font_size_override("font_size", 10)
+	name_lbl.add_theme_color_override("font_color", Color(0.9, 0.9, 0.9))
+	name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	name_lbl.size = Vector2(card_size.x, 30)
+	name_lbl.position = Vector2(0, 60)
+	box.add_child(name_lbl)
+
+	var count_lbl := Label.new()
+	count_lbl.text = "-" + str(attack_value)
+	count_lbl.add_theme_font_size_override("font_size", 13)
+	count_lbl.add_theme_color_override("font_color", Color(1, 0.4, 0.4))
+	count_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	count_lbl.size = Vector2(card_size.x, 20)
+	count_lbl.position = Vector2(0, card_size.y - 28)
 	box.add_child(count_lbl)
 
 	return box
@@ -288,12 +374,38 @@ func _show_level_up_effect(skill_name: String, new_level: int) -> void:
 	tween.tween_callback(label.queue_free)
 
 
-func _refresh_enemy_card() -> void:
-	for child in enemy_card.card_area.get_children():
-		child.queue_free()
-	enemy_card.name_label.text = _enemy_name + "  ATK" + str(_enemy_attack)
-	_update_hp_bar(enemy_card.hp_bar, _enemy_hp, _enemy_max_hp)
-	enemy_card.hp_label.text = str(_enemy_hp) + " / " + str(_enemy_max_hp)
+func _refresh_enemy_cards() -> void:
+	var first_alive_idx := -1
+	for i in range(_enemies.size()):
+		var ed = _enemies[i]
+		var card = _enemy_cards[i]
+		for child in card.card_area.get_children():
+			child.queue_free()
+
+		card.visible = ed.alive
+		if not ed.alive:
+			continue
+
+		var name_text: String = ed.name + "  ATK" + str(ed.attack)
+		if ed.realm != "":
+			name_text += "  境界:" + ed.realm
+		card.name_label.text = name_text
+		_update_hp_bar(card.hp_bar, ed.hp, ed.max_hp)
+		card.hp_label.text = str(ed.hp) + " / " + str(ed.max_hp)
+
+		if first_alive_idx == -1:
+			first_alive_idx = i
+
+	if first_alive_idx >= 0:
+		_current_enemy_index = first_alive_idx
+		_highlight_enemy(first_alive_idx)
+
+
+func _highlight_enemy(index: int) -> void:
+	for i in range(_enemy_cards.size()):
+		var card = _enemy_cards[i]
+		var is_current = i == index and _enemies[i].alive
+		card.modulate = Color.WHITE if is_current else Color(0.5, 0.5, 0.5, 0.7)
 
 
 func _apply_hit_to_target(card: CharacterCard, char_type: String, damage: int, g: Dictionary = {}) -> void:
@@ -332,7 +444,7 @@ func _build_hand() -> void:
 				_hand.append(g)
 				var gongfa_icon: String = g.get("icon_path", "")
 				if gongfa_icon == "" or not load(gongfa_icon):
-					gongfa_icon = String("{0}/sprite_{1}.png").format({"0": GONGFA_ICON_BASE, "1": "%03d" % (idx % 4)})
+					gongfa_icon = "👊"
 				var prof_text := str(g["exp"]) + "/" + str(g["max_exp"])
 				var display: CardDisplay = CardDisplayScene.instantiate()
 				display.setup(gongfa_icon, g["name"] + " " + _card_inventory_panel.get_level_name(g["level"]), g["base_damage"], card["color"], false, "伤害", prof_text)
@@ -349,6 +461,13 @@ func _on_card_clicked(event: InputEvent, display: CardDisplay, g: Dictionary) ->
 		_fly_card_to_enemy(display, g)
 
 
+func _get_current_enemy_card() -> CharacterCard:
+	var idx = _current_enemy_index
+	if idx < _enemy_cards.size():
+		return _enemy_cards[idx]
+	return null
+
+
 func _fly_card_to_enemy(display: CardDisplay, g: Dictionary) -> void:
 	var start_pos := display.global_position
 	_last_played_card_pos = start_pos
@@ -360,7 +479,8 @@ func _fly_card_to_enemy(display: CardDisplay, g: Dictionary) -> void:
 	copy.position = start_pos
 	copy.pivot_offset = fly_size * 0.5
 
-	var target_pos := enemy_card.card_area.global_position + enemy_card.card_area.size * 0.5 - fly_size * 0.5
+	var target_card := _get_current_enemy_card()
+	var target_pos := target_card.card_area.global_position + target_card.card_area.size * 0.5 - fly_size * 0.5
 
 	var tween := create_tween()
 	tween.tween_property(copy, "position", target_pos, 0.4).set_trans(Tween.TRANS_LINEAR)
@@ -371,8 +491,15 @@ func _on_card_arrived(display: Control, g: Dictionary) -> void:
 	display.queue_free()
 	_hand.erase(g)
 
-	_enemy_hp = maxi(_enemy_hp - g["base_damage"], 0)
-	_apply_hit_to_target(enemy_card, _enemy_type, g["base_damage"], g)
+	var idx := _current_enemy_index
+	if idx >= _enemies.size() or not _enemies[idx].alive:
+		return
+
+	var ed = _enemies[idx]
+	var card = _enemy_cards[idx]
+
+	ed.hp = maxi(ed.hp - g["base_damage"], 0)
+	_apply_hit_to_target(card, ed.type, g["base_damage"], g)
 	_show_proficiency_gain(g["gain_exp"])
 	var old_level: int = g["level"]
 	g["exp"] += g["gain_exp"]
@@ -397,45 +524,64 @@ func _on_card_arrived(display: Control, g: Dictionary) -> void:
 		_battle_stats["skills"][skill_id]["level_ups"] += g["level"] - old_level
 	_battle_stats["wudao_exp"] += g["gain_exp"]
 
-	_refresh_enemy_card()
+	_refresh_enemy_cards()
 	_refresh_player_info()
 
-	if _enemy_hp <= 0:
-		_on_enemy_dead()
-		return
-	get_tree().create_timer(1.0).timeout.connect(_enemy_attack_player)
+	# 检查当前敌人是否死亡
+	if ed.hp <= 0:
+		ed.alive = false
+		# 检查是否所有敌人都死了
+		var all_dead := true
+		for e in _enemies:
+			if e.alive:
+				all_dead = false
+				break
+		if all_dead:
+			_on_enemy_dead()
+			return
+		# 切换到下一个活着的敌人
+		_refresh_enemy_cards()
+
+	# 敌人反击（所有活着的敌人依次攻击）
+	await get_tree().create_timer(0.6).timeout
+	_enemy_attack_player()
 
 
 func _enemy_attack_player() -> void:
-	var attack_card: CardDisplay = CardDisplayScene.instantiate()
-	attack_card.setup("", _enemy_name + "攻击", _enemy_attack, Color(0.4, 0.2, 0.2), true, "伤害")
-	enemy_card.card_area.add_child(attack_card)
-	await get_tree().process_frame
+	# 所有活着的敌人依次攻击玩家
+	for i in range(_enemies.size()):
+		if not _enemies[i].alive:
+			continue
+		var ed = _enemies[i]
+		var enemy_card_node = _enemy_cards[i]
 
-	var start_pos := attack_card.global_position
-	var start_size := attack_card.size
-	var fly_visual := _create_fly_card_visual(attack_card)
-	attack_card.queue_free()
-	add_child(fly_visual)
-	fly_visual.position = start_pos
-	fly_visual.pivot_offset = start_size * 0.5
+		# 直接从敌人卡牌区域中心位置创建飞行卡牌，避免临时添加到 card_area 造成闪烁
+		var start_size := Vector2(80, 110)
+		var start_pos: Vector2 = enemy_card_node.card_area.global_position + enemy_card_node.card_area.size * 0.5 - start_size * 0.5
 
-	var target_pos := player_card.global_position + player_card.size * 0.5 - start_size * 0.5
+		var fly_visual := _create_attack_fly_visual(ed.name, ed.attack, start_size)
+		add_child(fly_visual)
+		fly_visual.position = start_pos
+		fly_visual.pivot_offset = start_size * 0.5
 
-	var tween := create_tween()
-	tween.tween_property(fly_visual, "position", target_pos, 0.4).set_trans(Tween.TRANS_LINEAR)
-	tween.tween_callback(_on_enemy_card_arrived.bind(fly_visual))
+		var target_pos := player_card.global_position + player_card.size * 0.5 - start_size * 0.5
 
+		var tween := create_tween()
+		tween.tween_property(fly_visual, "position", target_pos, 0.4).set_trans(Tween.TRANS_LINEAR)
+		await tween.finished
 
-func _on_enemy_card_arrived(attack_card: Control) -> void:
-	attack_card.queue_free()
-	_player_hp = maxi(_player_hp - _enemy_attack, 0)
-	_battle_stats["damage_taken"] += _enemy_attack
-	_apply_hit_to_target(player_card, _player_type, _enemy_attack)
-	_refresh_player_info()
-	if _player_hp <= 0:
-		_on_player_dead()
-		return
+		_player_hp = maxi(_player_hp - ed.attack, 0)
+		_battle_stats["damage_taken"] += ed.attack
+		_apply_hit_to_target(player_card, _player_type, ed.attack)
+		_refresh_player_info()
+		fly_visual.queue_free()
+
+		if _player_hp <= 0:
+			_on_player_dead()
+			return
+
+		await get_tree().create_timer(0.4).timeout
+
 	_turn += 1
 	_battle_stats["turns"] = _turn
 	_refresh_player_info()
@@ -503,7 +649,14 @@ func _show_settlement_panel() -> void:
 	vbox.add_child(sep)
 
 	var info := Label.new()
-	info.text = "敌人: " + _enemy_name + "    回合: " + str(_battle_stats["turns"])
+	var enemy_text: String = _enemy_name
+	var alive_count := 0
+	for e in _enemies:
+		if not e.alive:
+			alive_count += 1
+	if _enemy_count > 1:
+		enemy_text += " x" + str(alive_count) + "/" + str(_enemy_count)
+	info.text = "敌人: " + enemy_text + "    回合: " + str(_battle_stats["turns"])
 	info.add_theme_font_size_override("font_size", 14)
 	info.add_theme_color_override("font_color", Color(0.85, 0.85, 0.85))
 	info.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

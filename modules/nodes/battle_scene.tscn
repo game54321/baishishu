@@ -48,7 +48,11 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="EnemyCard" parent="Margin/VBox" unique_id=1062154834 instance=ExtResource("2")]
+[node name="EnemyArea" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
 
 [node name="Spacer" type="Control" parent="Margin/VBox" unique_id=293640995]
 layout_mode = 2

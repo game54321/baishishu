@@ -49,8 +49,11 @@ export interface MapNode {
   column: number;
   x: number;
   y: number;
+  name?: string;
   dojoName?: string;
   workName?: string;
+  enemyRealm?: string;
+  enemyCount?: number;
   consumeCards?: CardRef[];
   produceCards?: CardRef[];
 }

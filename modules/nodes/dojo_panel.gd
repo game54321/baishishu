@@ -82,7 +82,15 @@ func _setup_gongfa_card(card: CardDisplay, c: Dictionary, p_is_cost: bool) -> vo
 				gongfa_name = g.get("name", "功法")
 				break
 	var color := Color.from_string(info.get("color", "#D97333"), Color(0.85, 0.45, 0.2))
-	card.setup(info.get("icon", "👊"), gongfa_name, c.get("gainExp", 0), color, p_is_cost)
+	var gongfa_icon: String = ""
+	if gongfa_id != "":
+		for g in info.get("gongfaList", []):
+			if g.get("id", "") == gongfa_id:
+				gongfa_icon = g.get("icon_path", "")
+				break
+	if gongfa_icon == "":
+		gongfa_icon = "👊"
+	card.setup(gongfa_icon, gongfa_name, c.get("gainExp", 0), color, p_is_cost)
 
 
 func _setup_panel_style() -> void:

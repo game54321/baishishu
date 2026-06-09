@@ -20,13 +20,19 @@ export default function PropertyPanel({ currentMap, node, nodeTypes, cardTypes, 
   const nodeType = nodeTypes.find(t => t.id === node.typeId);
   const isDojo = node.typeId === 'dojo';
   const isWork = node.typeId === 'tavern';
+  const combatTypeIds = ['combat', 'elite', 'boss'];
+  const isCombat = combatTypeIds.includes(node.typeId);
   const canEditName = isDojo || isWork;
+  const allTypesCanEditName = true;
 
   const consumeCards = node.consumeCards ?? [];
   const produceCards = node.produceCards ?? [];
 
   const gongfaType = cardTypes.find(c => c.id === '功法');
   const gongfaList: any[] = (gongfaType as any)?.gongfaList || [];
+
+  const wudaoType = cardTypes.find(c => c.id === '武道');
+  const realms: string[] = (wudaoType as any)?.realms || [];
 
   const addCardRef = (field: 'consumeCards' | 'produceCards') => {
     const current = node[field] || [];
@@ -117,6 +123,11 @@ export default function PropertyPanel({ currentMap, node, nodeTypes, cardTypes, 
           />
         </div>
 
+        <div style={{ marginBottom: 10 }}>
+          <Typography.Text type="secondary" style={{ fontSize: 12 }}>节点名称</Typography.Text>
+          <Input value={node.name || ''} onChange={e => onChangeProp('name', e.target.value)} placeholder="显示在图标下方的名称" />
+        </div>
+
         {canEditName && isDojo && (
           <>
             <Divider style={{ margin: '8px 0' }} />
@@ -135,6 +146,32 @@ export default function PropertyPanel({ currentMap, node, nodeTypes, cardTypes, 
             <div style={{ marginBottom: 10 }}>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>工作名称</Typography.Text>
               <Input value={node.workName || ''} onChange={e => onChangeProp('workName', e.target.value)} placeholder="输入工作名" />
+            </div>
+          </>
+        )}
+
+        {isCombat && (
+          <>
+            <Divider style={{ margin: '8px 0' }} />
+            <Typography.Title level={5} style={{ color: '#e8c872', marginBottom: 8 }}>战斗设置</Typography.Title>
+            <div style={{ marginBottom: 10 }}>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>敌人境界</Typography.Text>
+              <Select
+                value={node.enemyRealm || '普通人'}
+                onChange={val => onChangeProp('enemyRealm', val)}
+                style={{ width: '100%' }}
+                options={realms.map(r => ({ value: r, label: r }))}
+              />
+            </div>
+            <div style={{ marginBottom: 10 }}>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>敌人数量</Typography.Text>
+              <Input
+                type="number"
+                value={node.enemyCount ?? 1}
+                min={1}
+                max={99}
+                onChange={e => onChangeProp('enemyCount', parseInt(e.target.value) || 1)}
+              />
             </div>
           </>
         )}

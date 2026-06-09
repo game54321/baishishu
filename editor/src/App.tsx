@@ -53,7 +53,9 @@ export default function App() {
           id: n.id, typeId: n.type_id, floor: n.floor_index ?? n.floor ?? 0,
           column: n.column_index ?? n.column ?? 0,
           x: n.position?.x ?? 0, y: n.position?.y ?? 0,
+          name: n.name,
           dojoName: n.dojo_name, workName: n.work_name,
+          enemyRealm: n.enemy_realm, enemyCount: n.enemy_count,
           consumeCards: n.consume_cards, produceCards: n.produce_cards,
         });
         for (const to of (n.connections || [])) {
@@ -72,8 +74,11 @@ export default function App() {
         id: n.id, type_id: n.typeId, floor_index: n.floor, column_index: n.column,
         connections: map.connections.filter(c => c.from === n.id).map(c => c.to),
         position: { x: n.x, y: n.y },
+        ...(n.name ? { name: n.name } : {}),
         ...(n.dojoName ? { dojo_name: n.dojoName } : {}),
         ...(n.workName ? { work_name: n.workName } : {}),
+        ...(n.enemyRealm ? { enemy_realm: n.enemyRealm } : {}),
+        ...(n.enemyCount ? { enemy_count: n.enemyCount } : {}),
         ...(n.consumeCards?.length ? { consume_cards: n.consumeCards } : {}),
         ...(n.produceCards?.length ? { produce_cards: n.produceCards } : {}),
       };

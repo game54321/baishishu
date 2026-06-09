@@ -6,7 +6,6 @@ signal node_clicked(node: MapNode)
 enum NodeType {
 	COMBAT,
 	ELITE,
-	REST,
 	SHOP,
 	EVENT,
 	BOSS,
@@ -22,6 +21,7 @@ enum NodeType {
 @export var floor_index: int = 0
 @export var column_index: int = 0
 @export var node_id: String = ""
+@export var node_name: String = ""
 
 var reachable: bool = false
 var visited: bool = false
@@ -33,7 +33,6 @@ var connections: Array[String] = []  # 连接的下一个节点ID列表
 const NODE_ICONS: Dictionary = {
 	NodeType.COMBAT: "res://assets/icons/战斗.png",
 	NodeType.ELITE: "res://assets/icons/强敌.png",
-	NodeType.REST: "res://assets/icons/休息.png",
 	NodeType.SHOP: "res://assets/icons/商店.png",
 	NodeType.EVENT: "res://assets/icons/奇遇.png",
 	NodeType.BOSS: "res://assets/icons/boss.png",
@@ -48,7 +47,6 @@ const NODE_ICONS: Dictionary = {
 const NODE_LABELS: Dictionary = {
 	NodeType.COMBAT: "战",
 	NodeType.ELITE: "精",
-	NodeType.REST: "休",
 	NodeType.SHOP: "店",
 	NodeType.EVENT: "?",
 	NodeType.BOSS: "BOSS",
@@ -65,11 +63,12 @@ func _ready() -> void:
 	_update_appearance()
 
 
-func setup(type: NodeType, floor: int, column: int, id: String) -> void:
+func setup(type: NodeType, floor: int, column: int, id: String, display_name: String = "") -> void:
 	node_type = type
 	floor_index = floor
 	column_index = column
 	node_id = id
+	node_name = display_name
 	_update_appearance()
 
 
@@ -78,7 +77,7 @@ func _update_appearance() -> void:
 	if icon and icon_path != "":
 		icon.texture = load(icon_path)
 	if label:
-		label.text = NODE_LABELS.get(node_type, "?")
+		label.text = node_name if node_name != "" else NODE_LABELS.get(node_type, "?")
 	_update_state_visual()
 
 

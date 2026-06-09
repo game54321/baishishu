@@ -7,7 +7,6 @@ extends RefCounted
 const TYPE_MAP: Dictionary = {
 	"combat": MapNode.NodeType.COMBAT,
 	"elite": MapNode.NodeType.ELITE,
-	"rest": MapNode.NodeType.REST,
 	"shop": MapNode.NodeType.SHOP,
 	"event": MapNode.NodeType.EVENT,
 	"boss": MapNode.NodeType.BOSS,
@@ -186,6 +185,9 @@ func _parse_node(d: Dictionary) -> MapNodeData:
 	node.column_index = int(d.get("column_index", 0))
 	node.dojo_name = d.get("dojo_name", "")
 	node.work_name = d.get("work_name", "")
+	node.node_name = d.get("name", "")
+	node.enemy_realm = d.get("enemy_realm", "")
+	node.enemy_count = int(d.get("enemy_count", 1))
 	node.produce_cards = d.get("produce_cards", [])
 	node.consume_cards = d.get("consume_cards", [])
 
@@ -219,5 +221,8 @@ class MapNodeData:
 	var position: Vector2 = Vector2.ZERO
 	var dojo_name: String = ""
 	var work_name: String = ""
+	var node_name: String = ""
+	var enemy_realm: String = ""
+	var enemy_count: int = 1
 	var produce_cards: Array = []
 	var consume_cards: Array = []

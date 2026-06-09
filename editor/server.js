@@ -44,7 +44,7 @@ function initDefaultCardTypes() {
   if (!fs.existsSync(CARD_TYPES_FILE)) {
     const defaults = [
       { id: '寿元', name: '寿元', desc: '一年寿命', icon: '⏳', color: '#E8C872', category: 'life', stackable: true, maxValue: 999999999, unit: '一年时间' },
-      { id: '银两', name: '银两', desc: '通用货币', icon: '🪙', color: '#C0C0C0', category: 'currency', stackable: true, maxValue: 9999, unit: '两' },
+      { id: '银两', name: '银两', desc: '通用货币', icon: '🪙', color: '#C0C0C0', category: 'currency', stackable: true, maxValue: 9999, unit: '银两' },
       { id: '功法', name: '功法', desc: '武学功法', icon: '👊', color: '#D97333', category: 'gongfa', stackable: false, maxValue: 1 },
       { id: '武道', name: '武道境界', desc: '武道修行境界', icon: '🌀', color: '#CC9933', category: 'wudao', stackable: false, maxValue: 1 },
     ];
@@ -397,6 +397,8 @@ function _exportGodot(mapId) {
       const nd = { id: n.id, type_id: n.typeId, floor_index: n.floor, column_index: i, connections: mapData.connections.filter(c => c.from === n.id).map(c => c.to), position: { x: n.x, y: n.y } };
       if (n.dojoName) nd.dojo_name = n.dojoName;
       if (n.workName) nd.work_name = n.workName;
+      if (n.enemyRealm) nd.enemy_realm = n.enemyRealm;
+      if (n.enemyCount) nd.enemy_count = n.enemyCount;
       if (n.consumeCards && n.consumeCards.length > 0) nd.consume_cards = n.consumeCards;
       if (n.produceCards && n.produceCards.length > 0) nd.produce_cards = n.produceCards;
       godotData.all_nodes[n.id] = nd;

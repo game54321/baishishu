@@ -86,37 +86,40 @@ text = "[i]劳力换银，汗水浇灌铜板。[/i]
 fit_content = true
 scroll_following = true
 
-[node name="CostSection" type="VBoxContainer" parent="Panel/Margin/VBox"]
+[node name="CardRow" type="HBoxContainer" parent="Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="CostSide" type="VBoxContainer" parent="Panel/Margin/VBox/CardRow"]
 layout_mode = 2
 theme_override_constants/separation = 8
+size_flags_horizontal = 3
 
-[node name="CostHeader" type="HBoxContainer" parent="Panel/Margin/VBox/CostSection"]
-layout_mode = 2
-
-[node name="CostIcon" type="Label" parent="Panel/Margin/VBox/CostSection/CostHeader"]
+[node name="CostLabel" type="Label" parent="Panel/Margin/VBox/CardRow/CostSide"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "消耗"
+horizontal_alignment = 1
 
-[node name="CostCards" type="HBoxContainer" parent="Panel/Margin/VBox/CostSection"]
+[node name="CostCards" type="HBoxContainer" parent="Panel/Margin/VBox/CardRow/CostSide"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="RewardSection" type="VBoxContainer" parent="Panel/Margin/VBox"]
+[node name="RewardSide" type="VBoxContainer" parent="Panel/Margin/VBox/CardRow"]
 layout_mode = 2
 theme_override_constants/separation = 8
+size_flags_horizontal = 3
 
-[node name="RewardHeader" type="HBoxContainer" parent="Panel/Margin/VBox/RewardSection"]
-layout_mode = 2
-
-[node name="RewardIcon" type="Label" parent="Panel/Margin/VBox/RewardSection/RewardHeader"]
+[node name="RewardLabel" type="Label" parent="Panel/Margin/VBox/CardRow/RewardSide"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "获得"
+horizontal_alignment = 1
 
-[node name="RewardCards" type="HBoxContainer" parent="Panel/Margin/VBox/RewardSection"]
+[node name="RewardCards" type="HBoxContainer" parent="Panel/Margin/VBox/CardRow/RewardSide"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 12

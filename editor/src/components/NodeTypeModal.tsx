@@ -113,7 +113,7 @@ export default function NodeTypeModal({ nodeTypes, cardTypes, editingId, onClose
         <Form.Item label="分类" name="category">
           <Select options={[
             { value: 'combat', label: '战斗' }, { value: 'story', label: '剧情' },
-            { value: 'rest', label: '休息' }, { value: 'shop', label: '商店' },
+            { value: 'shop', label: '商店' },
             { value: 'start', label: '起点' },
           ]} />
         </Form.Item>

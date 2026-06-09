@@ -192,7 +192,7 @@ func _create_node_instances() -> void:
 	for id in all_nodes:
 		var node_data: MapLoader.MapNodeData = all_nodes[id]
 		var instance: MapNode = MapNodeScene.instantiate()
-		instance.setup(node_data.node_type, node_data.floor_index, node_data.column_index, node_data.id)
+		instance.setup(node_data.node_type, node_data.floor_index, node_data.column_index, node_data.id, node_data.node_name)
 		instance.position = node_data.position + Vector2(_center_offset_x - _node_size / 2.0, -_node_size / 2.0)
 		instance.node_clicked.connect(_on_node_clicked)
 		map_container.add_child(instance)
@@ -244,8 +244,14 @@ func _on_node_clicked(node: MapNode) -> void:
 		work_panel.show_panel(work_name, _pending_produce_cards, _pending_consume_cards)
 		return
 
-	if node.node_type == MapNode.NodeType.COMBAT or node.node_type == MapNode.NodeType.ELITE:
+	if node.node_type == MapNode.NodeType.COMBAT or node.node_type == MapNode.NodeType.ELITE or node.node_type == MapNode.NodeType.BOSS:
 		_pending_node = node
+		var node_data: MapLoader.MapNodeData = _map_data.all_nodes.get(node.node_id, null)
+		var enemy_realm: String = ""
+		var enemy_count: int = 1
+		if node_data:
+			enemy_realm = node_data.enemy_realm
+			enemy_count = node_data.enemy_count
 		var enemy_name: String = "山贼"
 		var enemy_hp: int = 30
 		var enemy_attack: int = 5
@@ -253,7 +259,11 @@ func _on_node_clicked(node: MapNode) -> void:
 			enemy_name = "匪首"
 			enemy_hp = 60
 			enemy_attack = 10
-		battle_scene.start_battle(card_inventory_panel, enemy_name, enemy_hp, enemy_attack)
+		elif node.node_type == MapNode.NodeType.BOSS:
+			enemy_name = "Boss"
+			enemy_hp = 100
+			enemy_attack = 15
+		battle_scene.start_battle(card_inventory_panel, enemy_name, enemy_hp, enemy_attack, enemy_realm, enemy_count)
 		return
 
 	if node.node_type == MapNode.NodeType.EVENT:
