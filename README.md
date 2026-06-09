@@ -11,6 +11,10 @@
 
 这游戏是6月8号突发奇想立项，项目现在还属于摸索期，需要先用ai代码屎山为游戏探索出核心机制玩法, 暂时无法保证代码质量。
 
+## 在线预览
+- **游戏:** https://game54321.github.io/baishishu/
+- **资源编辑器:** https://game54321.github.io/baishishu/editor/
+
 ### 环境要求
 - [Godot 4.6](https://godotengine.org/download) 或更高版本
 - Node.js 22+ (仅编辑器需要)
