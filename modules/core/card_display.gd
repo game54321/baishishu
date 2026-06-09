@@ -34,11 +34,16 @@ static var _card_type_cache: Dictionary = {}
 	set(v):
 		count_text = v
 		_update()
+@export var max_count: int = 0:
+	set(v):
+		max_count = v
+		_update()
 
 @onready var icon_rect: TextureRect = $VBox/IconRect
 @onready var icon_label: Label = $VBox/IconLabel
 @onready var name_label: Label = $VBox/NameLabel
 @onready var count_label: Label = $VBox/CountLabel
+@onready var exp_bar: ProgressBar = $VBox/ExpBar
 
 
 static func _ensure_cache() -> void:
@@ -68,7 +73,7 @@ func _ready() -> void:
 	_update()
 
 
-func setup(p_icon: String, p_name: String, p_count: int, p_color: Color, p_is_cost: bool = false, p_unit: String = "", p_count_text: String = "") -> void:
+func setup(p_icon: String, p_name: String, p_count: int, p_color: Color, p_is_cost: bool = false, p_unit: String = "", p_count_text: String = "", p_max_count: int = 0) -> void:
 	card_icon = p_icon
 	card_name = p_name
 	card_count = p_count
@@ -76,6 +81,7 @@ func setup(p_icon: String, p_name: String, p_count: int, p_color: Color, p_is_co
 	is_cost = p_is_cost
 	count_unit = p_unit
 	count_text = p_count_text
+	max_count = p_max_count
 
 
 func setup_from_card(type_id: String, count: int, p_is_cost: bool = false, p_count_text: String = "") -> void:
@@ -90,7 +96,7 @@ func setup_from_card(type_id: String, count: int, p_is_cost: bool = false, p_cou
 	var unit: String = info.get("unit", "")
 
 	if type_id == "功法":
-		icon = info.get("icon_path", info.get("icon", "👊"))
+		icon = info.get("icon_path", "")
 
 	setup(icon, name, count, color, p_is_cost, unit, p_count_text)
 
@@ -100,14 +106,16 @@ func _update() -> void:
 		return
 
 	if icon_rect and icon_label:
-		if card_icon != "" and ResourceLoader.exists(card_icon):
-			icon_rect.texture = load(card_icon)
-			icon_rect.visible = true
-			icon_label.visible = false
-		elif card_icon != "":
-			icon_rect.visible = false
-			icon_label.visible = true
-			icon_label.text = card_icon
+		if card_icon != "":
+			var texture := load(card_icon)
+			if texture:
+				icon_rect.texture = texture
+				icon_rect.visible = true
+				icon_label.visible = false
+			else:
+				icon_rect.visible = false
+				icon_label.visible = true
+				icon_label.text = card_icon
 		else:
 			icon_rect.visible = false
 			icon_label.visible = false
@@ -116,6 +124,9 @@ func _update() -> void:
 	if count_label:
 		if count_text != "":
 			count_label.text = count_text
+			count_label.add_theme_color_override("font_color", Color(0.85, 0.85, 0.85))
+		elif max_count > 0:
+			count_label.text = str(card_count) + "/" + str(max_count)
 			count_label.add_theme_color_override("font_color", Color(0.85, 0.85, 0.85))
 		elif count_unit != "":
 			count_label.text = count_unit + "x" + str(card_count)
@@ -126,6 +137,13 @@ func _update() -> void:
 			var sign := "+" if not is_cost else "-"
 			count_label.text = sign + str(card_count)
 			count_label.add_theme_color_override("font_color", Color(0.85, 0.85, 0.85))
+	if exp_bar:
+		if max_count > 0:
+			exp_bar.visible = true
+			exp_bar.max_value = max_count
+			exp_bar.value = mini(card_count, max_count)
+		else:
+			exp_bar.visible = false
 	_apply_card_style()
 
 

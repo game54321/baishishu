@@ -27,13 +27,23 @@ func _draw() -> void:
 		var width: float
 
 		if from_visited and to_visited:
-			color = Color(0.4, 0.7, 0.4, 0.8)
+			color = Color(0.5, 0.85, 0.5, 0.9)
 			width = 3.0
 		elif is_reachable:
 			color = Color(1.0, 0.9, 0.3, 0.9)
 			width = 3.0
 		else:
-			color = Color(0.4, 0.4, 0.4, 0.5)
+			color = Color(0.8, 0.8, 0.8, 0.8)
 			width = 2.0
 
 		draw_line(from_pos, to_pos, color, width, true)
+
+		# 绘制箭头（截止在节点边缘）
+		const NODE_RADIUS := 32.0
+		var dir := (to_pos - from_pos).normalized()
+		var arrow_tip := to_pos - dir * NODE_RADIUS
+		var arrow_size := 14.0
+		var perp := Vector2(-dir.y, dir.x)
+		var arrow_p1 := arrow_tip - dir * arrow_size + perp * arrow_size * 0.5
+		var arrow_p2 := arrow_tip - dir * arrow_size - perp * arrow_size * 0.5
+		draw_colored_polygon(PackedVector2Array([arrow_tip, arrow_p1, arrow_p2]), color)

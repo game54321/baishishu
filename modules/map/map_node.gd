@@ -28,14 +28,13 @@ var visited: bool = false
 var connections: Array[String] = []  # 连接的下一个节点ID列表
 
 @onready var icon: TextureRect = $Icon
-@onready var highlight: ColorRect = $Highlight
 @onready var label: Label = $Label
 
 const NODE_ICONS: Dictionary = {
 	NodeType.COMBAT: "res://assets/icons/战斗.png",
 	NodeType.ELITE: "res://assets/icons/强敌.png",
-	NodeType.REST: "res://assets/icons/sprite_003.png",
-	NodeType.SHOP: "res://assets/icons/sprite_000.png",
+	NodeType.REST: "res://assets/icons/休息.png",
+	NodeType.SHOP: "res://assets/icons/商店.png",
 	NodeType.EVENT: "res://assets/icons/奇遇.png",
 	NodeType.BOSS: "res://assets/icons/boss.png",
 	NodeType.START: "res://assets/icons/起点.png",
@@ -88,17 +87,8 @@ func _update_state_visual() -> void:
 		modulate = Color(0.4, 0.4, 0.4, 0.7)
 	elif reachable:
 		modulate = Color.WHITE
-		if highlight:
-			highlight.visible = true
-			var tween := create_tween()
-			highlight.modulate.a = 0.3
-			tween.tween_property(highlight, "modulate:a", 0.6, 0.8)
-			tween.tween_property(highlight, "modulate:a", 0.3, 0.8)
-			tween.set_loops()
 	else:
-		modulate = Color(0.5, 0.5, 0.5, 0.5)
-		if highlight:
-			highlight.visible = false
+		modulate = Color(0.7, 0.7, 0.7, 0.75)
 
 
 func set_reachable(value: bool) -> void:

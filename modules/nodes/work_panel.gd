@@ -97,13 +97,12 @@ func _on_confirm() -> void:
 	parts.clear()
 	for c in _current_produce:
 		var info := CardDisplay.get_card_type_info(c.get("type", ""))
-		var icon: String = info.get("icon", "❓")
 		var name: String = info.get("name", c.get("type", ""))
-		parts.append(String("{icon}{name}×{count}").format({"icon": icon, "name": name, "count": c.get("count", 0)}))
+		parts.append(String("{name}×{count}").format({"name": name, "count": c.get("count", 0)}))
 	var gain_text: String = "  |  获得: " + ", ".join(parts) if not parts.is_empty() else ""
 
-	if %ResultLabel:
-		%ResultLabel.text = "[center]" + cost_text + gain_text + "  (第" + str(_confirm_count) + "次)[/center]"
+	var toast_text := cost_text + gain_text + "  (第" + str(_confirm_count) + "次)"
+	ToastManager.show_toast(toast_text, ToastManager.ToastType.SUCCESS)
 
 	confirmed.emit()
 

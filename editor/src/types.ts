@@ -31,6 +31,17 @@ export interface CardType {
   maxValue: number;
 }
 
+export interface Gongfa {
+  id: string;
+  name: string;
+  icon_path: string;
+  hit_effect_path: string;
+  desc: string;
+  baseDamage: number;
+  gainExp: number;
+  color: string;
+}
+
 export interface MapNode {
   id: string;
   typeId: string;
@@ -81,6 +92,12 @@ const STATIC_ROUTES: Record<string, string> = {
 export const api = async (method: string, path: string, body?: any) => {
   if (isStatic) {
     const key = `${method} ${path}`;
+    if (key === 'GET /gongfa') {
+      const res = await fetch(base + STATIC_ROUTES['GET /card-types']);
+      const types = await res.json();
+      const gongfaCard = types.find((t: any) => t.category === 'gongfa');
+      return gongfaCard?.gongfaList || [];
+    }
     const file = STATIC_ROUTES[key];
     if (file) {
       const res = await fetch(base + file);

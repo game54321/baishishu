@@ -18,14 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 SaveManager="*res://modules/core/save_manager.gd"
-
-[gui]
-
-theme/custom="res://assets/fonts/default_theme.tres"
+ToastManager="*res://modules/core/toast_panel.tscn"
 
 [editor]
 
 import/always_reimport_on_load=true
+
+[gui]
+
+theme/custom="res://assets/fonts/default_theme.tres"
 
 [physics]
 

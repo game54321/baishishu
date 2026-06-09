@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => ({
     port: 5173,
     proxy: {
       '/api': 'http://localhost:3001',
+      '/game_assets': 'http://localhost:3001',
     },
   },
 }))

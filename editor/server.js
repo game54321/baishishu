@@ -3,6 +3,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const multer = require('multer');
 
 const app = express();
 const PORT = 3001;
@@ -62,6 +63,7 @@ function writeJSON(filepath, data) {
 
 app.use(cors());
 app.use(express.json());
+app.use('/game_assets', express.static(path.join(__dirname, '..', 'assets')));
 
 // ==================== 卡牌类型 API ====================
 app.get('/api/card-types', (req, res) => {
@@ -93,6 +95,128 @@ app.delete('/api/card-types/:id', (req, res) => {
   if (types.length === len) return res.status(404).json({ error: '未找到' });
   writeJSON(CARD_TYPES_FILE, types);
   res.json({ success: true });
+});
+
+// ==================== 功法 API ====================
+function readGongfaList() {
+  const types = readJSON(CARD_TYPES_FILE) || [];
+  const gongfaCard = types.find(t => t.category === 'gongfa');
+  return { types, gongfaCard, list: gongfaCard?.gongfaList || [] };
+}
+
+function saveGongfaList(types) {
+  writeJSON(CARD_TYPES_FILE, types);
+  const gameCardFile = path.join(GAME_DATA_DIR, 'card_types.json');
+  writeJSON(gameCardFile, types);
+}
+
+app.get('/api/gongfa', (req, res) => {
+  res.json(readGongfaList().list);
+});
+
+app.post('/api/gongfa', (req, res) => {
+  const { types, list } = readGongfaList();
+  const g = {
+    id: req.body.id || uuidv4().slice(0, 8),
+    name: req.body.name || '未命名',
+    icon_path: req.body.icon_path || '',
+    hit_effect_path: req.body.hit_effect_path || '',
+    desc: req.body.desc || '',
+    baseDamage: req.body.baseDamage ?? 10,
+    gainExp: req.body.gainExp ?? 30,
+    color: req.body.color || '#D97333',
+  };
+  if (list.find(x => x.id === g.id)) return res.status(400).json({ error: 'ID已存在' });
+  list.push(g);
+  const gongfaCard = types.find(t => t.category === 'gongfa');
+  if (gongfaCard) gongfaCard.gongfaList = list;
+  saveGongfaList(types);
+  res.json(g);
+});
+
+app.put('/api/gongfa/:id', (req, res) => {
+  const { types, list } = readGongfaList();
+  const idx = list.findIndex(g => g.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: '未找到' });
+  list[idx] = { ...list[idx], ...req.body, id: list[idx].id };
+  const gongfaCard = types.find(t => t.category === 'gongfa');
+  if (gongfaCard) gongfaCard.gongfaList = list;
+  saveGongfaList(types);
+  res.json(list[idx]);
+});
+
+app.delete('/api/gongfa/:id', (req, res) => {
+  const { types, list } = readGongfaList();
+  const len = list.length;
+  const filtered = list.filter(g => g.id !== req.params.id);
+  if (filtered.length === len) return res.status(404).json({ error: '未找到' });
+  const gongfaCard = types.find(t => t.category === 'gongfa');
+  if (gongfaCard) gongfaCard.gongfaList = filtered;
+  saveGongfaList(types);
+  res.json({ success: true });
+});
+
+app.get('/api/gongfa/images', (req, res) => {
+  const imgDir = path.join(__dirname, '..', 'assets', '功法插图');
+  if (!fs.existsSync(imgDir)) return res.json([]);
+  const files = fs.readdirSync(imgDir).filter(f => /\.(png|jpg|jpeg|webp)$/i.test(f));
+  res.json(files.map(f => `res://assets/功法插图/${f}`));
+});
+
+const gongfaImgDir = path.join(__dirname, '..', 'assets', '功法插图');
+if (!fs.existsSync(gongfaImgDir)) fs.mkdirSync(gongfaImgDir, { recursive: true });
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: gongfaImgDir,
+    filename: (req, file, cb) => {
+      const ext = path.extname(file.originalname) || '.png';
+      cb(null, `${uuidv4().slice(0, 8)}${ext}`);
+    },
+  }),
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (/\.(png|jpg|jpeg|webp)$/i.test(path.extname(file.originalname))) cb(null, true);
+    else cb(new Error('仅支持 png/jpg/webp 格式'));
+  },
+});
+
+app.post('/api/gongfa/upload', upload.single('file'), (req, res) => {
+  if (!req.file) return res.status(400).json({ error: '未上传文件' });
+  const iconPath = `res://assets/功法插图/${req.file.filename}`;
+  res.json({ icon_path: iconPath });
+});
+
+app.post('/api/gongfa/cleanup-unused', (req, res) => {
+  const imgDir = path.join(__dirname, '..', 'assets', '功法插图');
+  if (!fs.existsSync(imgDir)) return res.json({ deleted: 0, files: [] });
+
+  // 收集所有在用的插图路径
+  const usedFiles = new Set();
+  const types = readJSON(CARD_TYPES_FILE) || [];
+  for (const t of types) {
+    if (t.category === 'gongfa' && t.gongfaList) {
+      for (const g of t.gongfaList) {
+        if (g.icon_path) usedFiles.add(path.basename(g.icon_path));
+        if (g.hit_effect_path) usedFiles.add(path.basename(g.hit_effect_path));
+      }
+    }
+  }
+
+  // 扫描目录，删除未使用的
+  const allFiles = fs.readdirSync(imgDir).filter(f => /\.(png|jpg|jpeg|webp)$/i.test(f));
+  const deleted = [];
+  for (const f of allFiles) {
+    if (!usedFiles.has(f)) {
+      const fp = path.join(imgDir, f);
+      fs.unlinkSync(fp);
+      // 同时删 .import
+      const importFp = fp + '.import';
+      if (fs.existsSync(importFp)) fs.unlinkSync(importFp);
+      deleted.push(f);
+    }
+  }
+
+  res.json({ deleted: deleted.length, files: deleted });
 });
 
 // ==================== 节点类型 API ====================

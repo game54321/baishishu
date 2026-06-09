@@ -56,14 +56,16 @@ func _init_inventory_from_json() -> void:
 				entry["gongfa_defs"][g.get("id", "")] = {
 					"id": g.get("id", ""),
 					"name": g.get("name", ""),
-					"icon": g.get("icon", "👊"),
-					"base_damage": g.get("baseDamage", 10),
-					"gain_exp": g.get("gainExp", 30),
+					"icon_path": g.get("icon_path", ""),
+					"hit_effect_path": g.get("hit_effect_path", ""),
+					"base_damage": int(g.get("baseDamage", 10)),
+					"gain_exp": int(g.get("gainExp", 30)),
 				}
 		elif card_def.get("category", "") == "wudao":
 			entry["count"] = 1
 			entry["realms"] = card_def.get("realms", [])
-			entry["realm_exp_required"] = card_def.get("realmExpRequired", [])
+			var raw_req: Array = card_def.get("realmExpRequired", [])
+			entry["realm_exp_required"] = raw_req.map(func(v): return int(v))
 			entry["realm_index"] = 0
 			entry["exp"] = 0
 		card_inventory.append(entry)
@@ -154,7 +156,8 @@ func add_gongfa(gongfa_id: String) -> void:
 			card["gongfa_list"].append({
 				"id": def["id"],
 				"name": def["name"],
-				"icon": def["icon"],
+				"icon_path": def.get("icon_path", ""),
+				"hit_effect_path": def.get("hit_effect_path", ""),
 				"level": 1,
 				"exp": 0,
 				"max_exp": 100,
@@ -228,7 +231,7 @@ func _refresh_cards() -> void:
 			for g in card["gongfa_list"]:
 				var display: CardDisplay = CardDisplayScene.instantiate()
 				card_grid.add_child(display)
-				display.setup(g["icon"], g["name"] + " " + get_level_name(g["level"]), g["exp"], card["color"], false)
+				display.setup(g.get("icon_path", g.get("icon", "👊")), g["name"] + " " + get_level_name(g["level"]), g["exp"], card["color"], false, "", "", g["max_exp"])
 		elif card["category"] == "武道":
 			var display: CardDisplay = CardDisplayScene.instantiate()
 			card_grid.add_child(display)
@@ -289,17 +292,18 @@ func load_save_data(data: Dictionary) -> void:
 				card["gongfa_list"].append({
 					"id": g.get("id", ""),
 					"name": g.get("name", "") if not g.get("name", "").is_empty() else (def.get("name", "") if not def.is_empty() else ""),
-					"icon": def.get("icon", "👊") if not def.is_empty() else "👊",
-					"level": g.get("level", 1),
-					"exp": g.get("exp", 0),
-					"max_exp": g.get("max_exp", 100),
-					"base_damage": g.get("base_damage", 10),
-					"gain_exp": def.get("gain_exp", 30) if not def.is_empty() else 30,
+					"icon_path": def.get("icon_path", "") if not def.is_empty() else "",
+					"hit_effect_path": def.get("hit_effect_path", "") if not def.is_empty() else "",
+					"level": int(g.get("level", 1)),
+					"exp": int(g.get("exp", 0)),
+					"max_exp": int(g.get("max_exp", 100)),
+					"base_damage": int(g.get("base_damage", 10)),
+					"gain_exp": int(def.get("gain_exp", 30)) if not def.is_empty() else 30,
 				})
 		elif card["category"] == "武道":
 			var wudao: Dictionary = data.get("wudao", {})
-			card["realm_index"] = wudao.get("realm_index", 0)
-			card["exp"] = wudao.get("exp", 0)
+			card["realm_index"] = int(wudao.get("realm_index", 0))
+			card["exp"] = int(wudao.get("exp", 0))
 		else:
 			if data.has(card["id"]):
 				card["count"] = data[card["id"]]

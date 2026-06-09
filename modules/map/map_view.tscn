@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmapview001"]
+[gd_scene load_steps=13 format=3 uid="uid://bmapview001"]
 
 [ext_resource type="Script" path="res://modules/map/map_view.gd" id="1"]
 [ext_resource type="Shader" path="res://modules/fx/desaturate.gdshader" id="11"]
@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" path="res://modules/panels/chapter_clear_panel.tscn" id="8"]
 [ext_resource type="PackedScene" path="res://modules/nodes/event_panel.tscn" id="9"]
 [ext_resource type="PackedScene" path="res://modules/nodes/shop_panel.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://modules/panels/chapter_preview_panel.tscn" id="12"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bg"]
 shader = ExtResource("11")
-shader_parameter/saturation = 0.65
-shader_parameter/tint_color = Color(0.2, 0.15, 0.05, 0.35)
+shader_parameter/saturation = 0.7
+shader_parameter/tint_color = Color(0.25, 0.18, 0.06, 0.3)
 
 [node name="MapView" type="Control"]
 layout_mode = 3
@@ -93,6 +94,9 @@ visible = false
 [node name="ShopPanel" parent="." instance=ExtResource("10")]
 visible = false
 
+[node name="ChapterPreviewPanel" parent="." instance=ExtResource("12")]
+visible = false
+
 [node name="SysButtons" type="VBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 3
@@ -132,3 +136,9 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 36)
 theme_override_font_sizes/font_size = 15
 text = "卡牌仓库"
+
+[node name="BtnChapterPreview" type="Button" parent="UI/SysButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 36)
+theme_override_font_sizes/font_size = 15
+text = "章节预览"

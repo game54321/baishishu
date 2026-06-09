@@ -28,6 +28,7 @@ var _chapters: Array = []
 @onready var btn_save: Button = $UI/SysButtons/BtnSave
 @onready var btn_card_inventory: Button = $UI/SysButtons/BtnCardInventory
 @onready var btn_reincarnate: Button = $UI/SysButtons/BtnReincarnate
+@onready var btn_chapter_preview: Button = $UI/SysButtons/BtnChapterPreview
 @onready var life_label: Label = $UI/LifeLabel
 @onready var dojo_panel: DojoPanel = $DojoPanel
 @onready var card_inventory_panel = $CardInventoryPanel
@@ -37,6 +38,7 @@ var _chapters: Array = []
 @onready var chapter_clear_panel = $ChapterClearPanel
 @onready var event_panel = $EventPanel
 @onready var shop_panel = $ShopPanel
+@onready var chapter_preview_panel = $ChapterPreviewPanel
 
 # 布局参数
 var _node_size: float = 64.0
@@ -52,6 +54,7 @@ func _ready() -> void:
 	btn_save.pressed.connect(_on_save_pressed)
 	btn_card_inventory.pressed.connect(_on_card_inventory_pressed)
 	btn_reincarnate.pressed.connect(_on_reincarnate_pressed)
+	btn_chapter_preview.pressed.connect(_on_chapter_preview_pressed)
 	dojo_panel.confirmed.connect(_on_dojo_confirmed)
 	dojo_panel.skipped.connect(_on_dojo_skipped)
 	dojo_panel.cancelled.connect(_on_dojo_cancelled)
@@ -489,6 +492,10 @@ func _on_chapter_confirmed() -> void:
 	SaveManager.delete_save()
 	_reload_map()
 	SaveManager.save_game(card_inventory_panel, self)
+
+
+func _on_chapter_preview_pressed() -> void:
+	chapter_preview_panel.show_panel(_chapters, _chapter_index)
 
 
 func _on_save_pressed() -> void:

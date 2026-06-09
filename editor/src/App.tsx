@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Button, Tabs, message } from 'antd';
 import { LinkOutlined, SaveOutlined } from '@ant-design/icons';
-import { NodeType, CardType, MapData, api } from './types';
+import { NodeType, CardType, MapData, Gongfa, api } from './types';
 import NodeTypePanel from './components/NodeTypePanel';
-import CardTypePanel from './components/CardTypePanel';
+import GongfaPanel from './components/GongfaPanel';
 import ChapterPanel from './components/ChapterPanel';
 import PropertyPanel from './components/PropertyPanel';
 import NodeTypeModal from './components/NodeTypeModal';
@@ -12,6 +12,7 @@ import MapCanvas from './components/MapCanvas';
 export default function App() {
   const [nodeTypes, setNodeTypes] = useState<NodeType[]>([]);
   const [cardTypes, setCardTypes] = useState<CardType[]>([]);
+  const [gongfaList, setGongfaList] = useState<Gongfa[]>([]);
   const [currentMap, setCurrentMap] = useState<MapData | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [connectMode, setConnectMode] = useState(false);
@@ -31,11 +32,15 @@ export default function App() {
     setCardTypes(await api('GET', '/card-types'));
   }, []);
 
+  const loadGongfa = useCallback(async () => {
+    setGongfaList(await api('GET', '/gongfa'));
+  }, []);
+
   const loadChapters = useCallback(async () => {
     setChapters(await api('GET', '/chapters'));
   }, []);
 
-  useEffect(() => { loadNodeTypes(); loadCardTypes(); loadChapters(); }, [loadNodeTypes, loadCardTypes, loadChapters]);
+  useEffect(() => { loadNodeTypes(); loadCardTypes(); loadGongfa(); loadChapters(); }, [loadNodeTypes, loadCardTypes, loadGongfa, loadChapters]);
 
   const godotMapToEditor = (rawMap: any, name: string): MapData => {
     const nodes: any[] = [];
@@ -187,7 +192,7 @@ export default function App() {
             size="small"
             items={[
               { key: 'nodes', label: '节点' },
-              { key: 'cards', label: '卡牌' },
+              { key: 'gongfa', label: '功法' },
               { key: 'chapters', label: '章节' },
             ]}
           />
@@ -199,8 +204,8 @@ export default function App() {
                 onEditType={handleOpenModal}
                 onCreateType={() => handleOpenModal()}
               />
-            ) : leftTab === 'cards' ? (
-              <CardTypePanel cardTypes={cardTypes} onRefresh={loadCardTypes} />
+            ) : leftTab === 'gongfa' ? (
+              <GongfaPanel gongfaList={gongfaList} onRefresh={loadGongfa} />
             ) : (
               <ChapterPanel chapters={chapters} activeIdx={activeChapterIdx} onChange={setChapters} onSelect={handleSelectChapter} />
             )}

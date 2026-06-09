@@ -75,7 +75,7 @@ export default function PropertyPanel({ currentMap, node, nodeTypes, cardTypes, 
               const gf = gongfaList.find(g => g.id === val);
               updateCardRef(field, i, { gongfaId: val, gainExp: gf?.gainExp || 30 });
             }}
-            options={gongfaList.map(g => ({ value: g.id, label: `${g.icon} ${g.name}` }))}
+            options={gongfaList.map(g => ({ value: g.id, label: g.name }))}
           />
         ) : (
           <Input
