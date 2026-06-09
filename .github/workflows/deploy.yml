@@ -1,0 +1,105 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-game:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_linux.x86_64.zip
+          unzip -q Godot_v4.6-stable_linux.x86_64.zip
+          mv Godot_v4.6-stable_linux.x86_64 /usr/local/bin/godot
+          chmod +x /usr/local/bin/godot
+
+      - name: Import project
+        run: godot --headless --import
+
+      - name: Download export templates
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_export_templates.tpz
+          mkdir -p ~/.local/share/godot/export_templates/4.6.stable
+          unzip -q Godot_v4.6-stable_export_templates.tpz -d /tmp/tpl
+          mv /tmp/tpl/templates/* ~/.local/share/godot/export_templates/4.6.stable/
+
+      - name: Export to HTML5
+        run: |
+          mkdir -p build/web
+          godot --headless --export-release "HTML5" build/web/index.html
+
+      - name: Upload game artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game
+          path: build/web
+
+  build-editor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: editor/package-lock.json
+
+      - name: Install dependencies
+        working-directory: editor
+        run: npm ci
+
+      - name: Build editor
+        working-directory: editor
+        run: npm run build
+
+      - name: Upload editor artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: editor
+          path: editor/dist
+
+  deploy:
+    needs: [build-game, build-editor]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download game
+        uses: actions/download-artifact@v4
+        with:
+          name: game
+          path: site
+
+      - name: Download editor
+        uses: actions/download-artifact@v4
+        with:
+          name: editor
+          path: site/editor
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

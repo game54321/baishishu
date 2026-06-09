@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Editor
+editor/node_modules/
+editor/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+build/

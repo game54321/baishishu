@@ -1,0 +1,38 @@
+[
+  {
+    "id": "shop_1",
+    "name": "杂货铺",
+    "items": [
+      {"name": "养生丹", "desc": "延年益寿", "consumeCards": [{"type": "银两", "count": 10}], "produceCards": [{"type": "寿元", "count": 8}]},
+      {"name": "铁砂掌谱", "desc": "习得虎啸掌", "consumeCards": [{"type": "银两", "count": 20}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a", "gainExp": 30}]},
+      {"name": "碎银袋", "desc": "一袋银两", "consumeCards": [{"type": "银两", "count": 5}], "produceCards": [{"type": "银两", "count": 12}]}
+    ]
+  },
+  {
+    "id": "shop_2",
+    "name": "药铺",
+    "items": [
+      {"name": "参茸丸", "desc": "大补之物", "consumeCards": [{"type": "银两", "count": 15}], "produceCards": [{"type": "寿元", "count": 15}]},
+      {"name": "洗髓丹", "desc": "脱胎换骨", "consumeCards": [{"type": "银两", "count": 25}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c", "gainExp": 30}]},
+      {"name": "金创药", "desc": "疗伤止痛", "consumeCards": [{"type": "银两", "count": 8}], "produceCards": [{"type": "寿元", "count": 5}]}
+    ]
+  },
+  {
+    "id": "shop_3",
+    "name": "兵器铺",
+    "items": [
+      {"name": "青云剑", "desc": "习得青云剑诀", "consumeCards": [{"type": "银两", "count": 25}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35", "gainExp": 25}]},
+      {"name": "金刚护腕", "desc": "习得金刚不坏功", "consumeCards": [{"type": "银两", "count": 30}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "e1a5b6c7-8d2e-4f9b-0a3c-5b7d9e1f3a5c", "gainExp": 30}]},
+      {"name": "短刀", "desc": "防身利器", "consumeCards": [{"type": "银两", "count": 8}], "produceCards": [{"type": "寿元", "count": 3}]}
+    ]
+  },
+  {
+    "id": "shop_4",
+    "name": "奇货居",
+    "items": [
+      {"name": "雷鸣靴", "desc": "习得雷鸣步", "consumeCards": [{"type": "银两", "count": 22}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "b5d8e1f2-4a6c-4d3e-7f9a-1b2c4d6e8f0a", "gainExp": 30}]},
+      {"name": "寿桃", "desc": "仙家灵物", "consumeCards": [{"type": "银两", "count": 12}], "produceCards": [{"type": "寿元", "count": 12}]},
+      {"name": "残页", "desc": "功法残页", "consumeCards": [{"type": "银两", "count": 18}], "produceCards": [{"type": "功法", "count": 1, "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02", "gainExp": 30}]}
+    ]
+  }
+]

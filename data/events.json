@@ -1,0 +1,116 @@
+[
+  {
+    "id": "old_beggar",
+    "name": "老乞丐",
+    "description": "路边一位衣衫褴褛的老者向你伸出手，眼中似有深意。",
+    "choices": [
+      {
+        "text": "施舍银两",
+        "consumeCards": [{"type": "银两", "count": 5}],
+        "produceCards": [{"type": "寿元", "count": 10}],
+        "result": "老者微微一笑：'善有善报。'你感到一股暖流涌入体内，寿元竟增加了。"
+      },
+      {
+        "text": "转身离开",
+        "consumeCards": [],
+        "produceCards": [],
+        "result": "老者叹了口气，你头也不回地离开了。"
+      }
+    ]
+  },
+  {
+    "id": "sword_in_stone",
+    "name": "石中剑",
+    "description": "路旁一块巨石中插着一柄锈迹斑斑的古剑，似有灵气波动。",
+    "choices": [
+      {
+        "text": "拔剑",
+        "consumeCards": [{"type": "寿元", "count": 3}],
+        "produceCards": [{"type": "功法", "count": 1, "gongfaId": "f2b6c8d9-0e4f-4a1c-2b5d-6c8e0f2a4b6d", "gainExp": 30}],
+        "result": "你运功一拔，古剑应手而出！剑意入体，你领悟了烈焰刀法。"
+      },
+      {
+        "text": "不去理会",
+        "consumeCards": [],
+        "produceCards": [],
+        "result": "你看了古剑一眼，转身离去。"
+      }
+    ]
+  },
+  {
+    "id": "hidden_cave",
+    "name": "幽暗洞穴",
+    "description": "山壁上有一道裂缝，隐约传来阵阵寒气。洞内似乎藏有宝物。",
+    "choices": [
+      {
+        "text": "探入洞穴",
+        "consumeCards": [{"type": "寿元", "count": 2}],
+        "produceCards": [{"type": "银两", "count": 20}],
+        "result": "你小心翼翼地走入洞中，发现了一处前人遗留的银两。虽花费了些时间，倒也值得。"
+      },
+      {
+        "text": "绕路而行",
+        "consumeCards": [],
+        "produceCards": [],
+        "result": "你决定不冒险，继续赶路。"
+      }
+    ]
+  },
+  {
+    "id": "herbalist",
+    "name": "采药人",
+    "description": "一位采药人背着满筐草药，向你招手：'少侠可要补补身子？'",
+    "choices": [
+      {
+        "text": "买药调养",
+        "consumeCards": [{"type": "银两", "count": 8}],
+        "produceCards": [{"type": "寿元", "count": 5}],
+        "result": "你喝下药汤，浑身舒畅，感觉寿元增加了。"
+      },
+      {
+        "text": "婉言谢绝",
+        "consumeCards": [],
+        "produceCards": [],
+        "result": "你谢过采药人，继续前行。"
+      }
+    ]
+  },
+  {
+    "id": "bandit_ambush",
+    "name": "山贼埋伏",
+    "description": "前方传来一声断喝：'此路是我开！'几个山贼拦住了去路。",
+    "choices": [
+      {
+        "text": "交出银两保平安",
+        "consumeCards": [{"type": "银两", "count": 10}],
+        "produceCards": [],
+        "result": "你破财消灾，山贼收了银两放你过去。"
+      },
+      {
+        "text": "强行突破",
+        "consumeCards": [{"type": "寿元", "count": 2}],
+        "produceCards": [{"type": "银两", "count": 15}],
+        "result": "你凭武功硬闯，虽费了些气力，却反夺了山贼的银两。"
+      }
+    ]
+  },
+  {
+    "id": "river_fairy",
+    "name": "河边仙翁",
+    "description": "河边一位白发老翁正在垂钓，见你走来微微一笑：'有缘人，可愿坐下一叙？'",
+    "choices": [
+      {
+        "text": "坐下聆听",
+        "consumeCards": [{"type": "寿元", "count": 1}],
+        "produceCards": [{"type": "功法", "count": 1, "gongfaId": "a4c7d0e1-3f5a-4b2d-6e8c-0f1a3b5c7d9e", "gainExp": 30}],
+        "result": "老翁随口几句，你竟悟出了寒霜指的奥妙。待你回过神来，老翁已不知所踪。"
+      },
+      {
+        "text": "赶路要紧",
+        "consumeCards": [],
+        "produceCards": [],
+        "result": "你向老翁点头致意，继续赶路。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,4241 @@
+[
+  {
+    "name": "第一章 山野村夫",
+    "description": "平凡少年，初入江湖。先谋生计，再图武艺。",
+    "bg": "res://assets/chapter/1/bg.png",
+    "map": {
+      "floors": [
+        [
+          {
+            "id": "start_0",
+            "type_id": "start",
+            "floor_index": 0,
+            "column_index": 0,
+            "connections": [
+              "floor_1_node_1",
+              "floor_1_node_2"
+            ],
+            "position": {
+              "x": 400,
+              "y": 1260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_1_node_1",
+            "type_id": "tavern",
+            "floor_index": 1,
+            "column_index": 0,
+            "connections": [
+              "floor_2_node_3",
+              "floor_2_node_4"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1160
+            },
+            "work_name": "龙门客栈",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_1_node_2",
+            "type_id": "event",
+            "floor_index": 1,
+            "column_index": 1,
+            "connections": [
+              "floor_2_node_3",
+              "floor_2_node_4"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1160
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_2_node_3",
+            "type_id": "dojo",
+            "floor_index": 2,
+            "column_index": 0,
+            "connections": [
+              "floor_3_node_5",
+              "floor_3_node_6"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1060
+            },
+            "dojo_name": "青云武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_2_node_4",
+            "type_id": "tavern",
+            "floor_index": 2,
+            "column_index": 1,
+            "connections": [
+              "floor_3_node_6",
+              "floor_3_node_7"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1060
+            },
+            "work_name": "村口酒馆",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_3_node_5",
+            "type_id": "combat",
+            "floor_index": 3,
+            "column_index": 0,
+            "connections": [
+              "floor_4_node_9",
+              "floor_4_node_10"
+            ],
+            "position": {
+              "x": 280,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_3_node_6",
+            "type_id": "rest",
+            "floor_index": 3,
+            "column_index": 1,
+            "connections": [
+              "floor_4_node_8",
+              "floor_4_node_9"
+            ],
+            "position": {
+              "x": 400,
+              "y": 960
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_3_node_7",
+            "type_id": "shop",
+            "floor_index": 3,
+            "column_index": 2,
+            "connections": [
+              "floor_4_node_9",
+              "floor_4_node_8"
+            ],
+            "position": {
+              "x": 520,
+              "y": 960
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_4_node_8",
+            "type_id": "combat",
+            "floor_index": 4,
+            "column_index": 0,
+            "connections": [
+              "floor_5_node_12",
+              "floor_5_node_11"
+            ],
+            "position": {
+              "x": 280,
+              "y": 860
+            }
+          },
+          {
+            "id": "floor_4_node_9",
+            "type_id": "dojo",
+            "floor_index": 4,
+            "column_index": 1,
+            "connections": [
+              "floor_5_node_11",
+              "floor_5_node_12"
+            ],
+            "position": {
+              "x": 400,
+              "y": 860
+            },
+            "dojo_name": "虎威武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_4_node_10",
+            "type_id": "event",
+            "floor_index": 4,
+            "column_index": 2,
+            "connections": [
+              "floor_5_node_11",
+              "floor_5_node_12",
+              "floor_5_node_13"
+            ],
+            "position": {
+              "x": 520,
+              "y": 860
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_5_node_11",
+            "type_id": "rest",
+            "floor_index": 5,
+            "column_index": 0,
+            "connections": [
+              "floor_6_node_16",
+              "floor_6_node_15"
+            ],
+            "position": {
+              "x": 280,
+              "y": 760
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_5_node_12",
+            "type_id": "combat",
+            "floor_index": 5,
+            "column_index": 1,
+            "connections": [
+              "floor_6_node_14",
+              "floor_6_node_15"
+            ],
+            "position": {
+              "x": 400,
+              "y": 760
+            }
+          },
+          {
+            "id": "floor_5_node_13",
+            "type_id": "tavern",
+            "floor_index": 5,
+            "column_index": 2,
+            "connections": [
+              "floor_6_node_14",
+              "floor_6_node_15"
+            ],
+            "position": {
+              "x": 520,
+              "y": 760
+            },
+            "work_name": "村口酒馆",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_6_node_14",
+            "type_id": "elite",
+            "floor_index": 6,
+            "column_index": 0,
+            "connections": [
+              "floor_7_node_17",
+              "floor_7_node_18"
+            ],
+            "position": {
+              "x": 280,
+              "y": 660
+            }
+          },
+          {
+            "id": "floor_6_node_15",
+            "type_id": "rest",
+            "floor_index": 6,
+            "column_index": 1,
+            "connections": [
+              "floor_7_node_19",
+              "floor_7_node_18"
+            ],
+            "position": {
+              "x": 400,
+              "y": 660
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_6_node_16",
+            "type_id": "shop",
+            "floor_index": 6,
+            "column_index": 2,
+            "connections": [
+              "floor_7_node_17",
+              "floor_7_node_18"
+            ],
+            "position": {
+              "x": 520,
+              "y": 660
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_7_node_17",
+            "type_id": "combat",
+            "floor_index": 7,
+            "column_index": 0,
+            "connections": [
+              "floor_8_node_21",
+              "floor_8_node_22"
+            ],
+            "position": {
+              "x": 280,
+              "y": 560
+            }
+          },
+          {
+            "id": "floor_7_node_18",
+            "type_id": "event",
+            "floor_index": 7,
+            "column_index": 1,
+            "connections": [
+              "floor_8_node_22",
+              "floor_8_node_21"
+            ],
+            "position": {
+              "x": 400,
+              "y": 560
+            }
+          },
+          {
+            "id": "floor_7_node_19",
+            "type_id": "blacksmith",
+            "floor_index": 7,
+            "column_index": 2,
+            "connections": [
+              "floor_8_node_22",
+              "floor_8_node_20"
+            ],
+            "position": {
+              "x": 520,
+              "y": 560
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_8_node_20",
+            "type_id": "shop",
+            "floor_index": 8,
+            "column_index": 0,
+            "connections": [
+              "floor_9_node_25",
+              "floor_9_node_24"
+            ],
+            "position": {
+              "x": 280,
+              "y": 460
+            }
+          },
+          {
+            "id": "floor_8_node_21",
+            "type_id": "rest",
+            "floor_index": 8,
+            "column_index": 1,
+            "connections": [
+              "floor_9_node_25",
+              "floor_9_node_24"
+            ],
+            "position": {
+              "x": 400,
+              "y": 460
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_8_node_22",
+            "type_id": "dojo",
+            "floor_index": 8,
+            "column_index": 2,
+            "connections": [
+              "floor_9_node_23",
+              "floor_9_node_24"
+            ],
+            "position": {
+              "x": 520,
+              "y": 460
+            },
+            "dojo_name": "虎威武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+                "gainExp": 30
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_9_node_23",
+            "type_id": "combat",
+            "floor_index": 9,
+            "column_index": 0,
+            "connections": [
+              "floor_10_node_26",
+              "floor_10_node_27"
+            ],
+            "position": {
+              "x": 280,
+              "y": 360
+            }
+          },
+          {
+            "id": "floor_9_node_24",
+            "type_id": "elite",
+            "floor_index": 9,
+            "column_index": 1,
+            "connections": [
+              "floor_10_node_26",
+              "floor_10_node_27"
+            ],
+            "position": {
+              "x": 400,
+              "y": 360
+            }
+          },
+          {
+            "id": "floor_9_node_25",
+            "type_id": "temple",
+            "floor_index": 9,
+            "column_index": 2,
+            "connections": [
+              "floor_10_node_26",
+              "floor_10_node_27"
+            ],
+            "position": {
+              "x": 520,
+              "y": 360
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_10_node_26",
+            "type_id": "rest",
+            "floor_index": 10,
+            "column_index": 0,
+            "connections": [
+              "floor_11_node_28"
+            ],
+            "position": {
+              "x": 340,
+              "y": 260
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_10_node_27",
+            "type_id": "event",
+            "floor_index": 10,
+            "column_index": 1,
+            "connections": [
+              "floor_11_node_28"
+            ],
+            "position": {
+              "x": 460,
+              "y": 260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_11_node_28",
+            "type_id": "boss",
+            "floor_index": 11,
+            "column_index": 0,
+            "connections": [],
+            "position": {
+              "x": 400,
+              "y": 160
+            }
+          }
+        ]
+      ],
+      "all_nodes": {
+        "floor_1_node_1": {
+          "id": "floor_1_node_1",
+          "type_id": "tavern",
+          "floor_index": 1,
+          "column_index": 0,
+          "connections": [
+            "floor_2_node_3",
+            "floor_2_node_4"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1160
+          },
+          "work_name": "龙门客栈",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_1_node_2": {
+          "id": "floor_1_node_2",
+          "type_id": "event",
+          "floor_index": 1,
+          "column_index": 1,
+          "connections": [
+            "floor_2_node_3",
+            "floor_2_node_4"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1160
+          }
+        },
+        "floor_2_node_3": {
+          "id": "floor_2_node_3",
+          "type_id": "dojo",
+          "floor_index": 2,
+          "column_index": 0,
+          "connections": [
+            "floor_3_node_5",
+            "floor_3_node_6"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1060
+          },
+          "dojo_name": "青云武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_2_node_4": {
+          "id": "floor_2_node_4",
+          "type_id": "tavern",
+          "floor_index": 2,
+          "column_index": 1,
+          "connections": [
+            "floor_3_node_6",
+            "floor_3_node_7"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1060
+          },
+          "work_name": "村口酒馆",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_3_node_5": {
+          "id": "floor_3_node_5",
+          "type_id": "combat",
+          "floor_index": 3,
+          "column_index": 0,
+          "connections": [
+            "floor_4_node_9",
+            "floor_4_node_10"
+          ],
+          "position": {
+            "x": 280,
+            "y": 960
+          }
+        },
+        "floor_3_node_6": {
+          "id": "floor_3_node_6",
+          "type_id": "rest",
+          "floor_index": 3,
+          "column_index": 1,
+          "connections": [
+            "floor_4_node_8",
+            "floor_4_node_9"
+          ],
+          "position": {
+            "x": 400,
+            "y": 960
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_3_node_7": {
+          "id": "floor_3_node_7",
+          "type_id": "shop",
+          "floor_index": 3,
+          "column_index": 2,
+          "connections": [
+            "floor_4_node_9",
+            "floor_4_node_8"
+          ],
+          "position": {
+            "x": 520,
+            "y": 960
+          }
+        },
+        "floor_4_node_8": {
+          "id": "floor_4_node_8",
+          "type_id": "combat",
+          "floor_index": 4,
+          "column_index": 0,
+          "connections": [
+            "floor_5_node_12",
+            "floor_5_node_11"
+          ],
+          "position": {
+            "x": 280,
+            "y": 860
+          }
+        },
+        "floor_4_node_9": {
+          "id": "floor_4_node_9",
+          "type_id": "dojo",
+          "floor_index": 4,
+          "column_index": 1,
+          "connections": [
+            "floor_5_node_11",
+            "floor_5_node_12"
+          ],
+          "position": {
+            "x": 400,
+            "y": 860
+          },
+          "dojo_name": "虎威武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_4_node_10": {
+          "id": "floor_4_node_10",
+          "type_id": "event",
+          "floor_index": 4,
+          "column_index": 2,
+          "connections": [
+            "floor_5_node_11",
+            "floor_5_node_12",
+            "floor_5_node_13"
+          ],
+          "position": {
+            "x": 520,
+            "y": 860
+          }
+        },
+        "floor_5_node_11": {
+          "id": "floor_5_node_11",
+          "type_id": "rest",
+          "floor_index": 5,
+          "column_index": 0,
+          "connections": [
+            "floor_6_node_16",
+            "floor_6_node_15"
+          ],
+          "position": {
+            "x": 280,
+            "y": 760
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_5_node_12": {
+          "id": "floor_5_node_12",
+          "type_id": "combat",
+          "floor_index": 5,
+          "column_index": 1,
+          "connections": [
+            "floor_6_node_14",
+            "floor_6_node_15"
+          ],
+          "position": {
+            "x": 400,
+            "y": 760
+          }
+        },
+        "floor_5_node_13": {
+          "id": "floor_5_node_13",
+          "type_id": "tavern",
+          "floor_index": 5,
+          "column_index": 2,
+          "connections": [
+            "floor_6_node_14",
+            "floor_6_node_15"
+          ],
+          "position": {
+            "x": 520,
+            "y": 760
+          },
+          "work_name": "村口酒馆",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_6_node_14": {
+          "id": "floor_6_node_14",
+          "type_id": "elite",
+          "floor_index": 6,
+          "column_index": 0,
+          "connections": [
+            "floor_7_node_17",
+            "floor_7_node_18"
+          ],
+          "position": {
+            "x": 280,
+            "y": 660
+          }
+        },
+        "floor_6_node_15": {
+          "id": "floor_6_node_15",
+          "type_id": "rest",
+          "floor_index": 6,
+          "column_index": 1,
+          "connections": [
+            "floor_7_node_19",
+            "floor_7_node_18"
+          ],
+          "position": {
+            "x": 400,
+            "y": 660
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_6_node_16": {
+          "id": "floor_6_node_16",
+          "type_id": "shop",
+          "floor_index": 6,
+          "column_index": 2,
+          "connections": [
+            "floor_7_node_17",
+            "floor_7_node_18"
+          ],
+          "position": {
+            "x": 520,
+            "y": 660
+          }
+        },
+        "floor_7_node_17": {
+          "id": "floor_7_node_17",
+          "type_id": "combat",
+          "floor_index": 7,
+          "column_index": 0,
+          "connections": [
+            "floor_8_node_21",
+            "floor_8_node_22"
+          ],
+          "position": {
+            "x": 280,
+            "y": 560
+          }
+        },
+        "floor_7_node_18": {
+          "id": "floor_7_node_18",
+          "type_id": "event",
+          "floor_index": 7,
+          "column_index": 1,
+          "connections": [
+            "floor_8_node_22",
+            "floor_8_node_21"
+          ],
+          "position": {
+            "x": 400,
+            "y": 560
+          }
+        },
+        "floor_7_node_19": {
+          "id": "floor_7_node_19",
+          "type_id": "blacksmith",
+          "floor_index": 7,
+          "column_index": 2,
+          "connections": [
+            "floor_8_node_22",
+            "floor_8_node_20"
+          ],
+          "position": {
+            "x": 520,
+            "y": 560
+          }
+        },
+        "floor_8_node_20": {
+          "id": "floor_8_node_20",
+          "type_id": "shop",
+          "floor_index": 8,
+          "column_index": 0,
+          "connections": [
+            "floor_9_node_25",
+            "floor_9_node_24"
+          ],
+          "position": {
+            "x": 280,
+            "y": 460
+          }
+        },
+        "floor_8_node_21": {
+          "id": "floor_8_node_21",
+          "type_id": "rest",
+          "floor_index": 8,
+          "column_index": 1,
+          "connections": [
+            "floor_9_node_25",
+            "floor_9_node_24"
+          ],
+          "position": {
+            "x": 400,
+            "y": 460
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_8_node_22": {
+          "id": "floor_8_node_22",
+          "type_id": "dojo",
+          "floor_index": 8,
+          "column_index": 2,
+          "connections": [
+            "floor_9_node_23",
+            "floor_9_node_24"
+          ],
+          "position": {
+            "x": 520,
+            "y": 460
+          },
+          "dojo_name": "虎威武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_9_node_23": {
+          "id": "floor_9_node_23",
+          "type_id": "combat",
+          "floor_index": 9,
+          "column_index": 0,
+          "connections": [
+            "floor_10_node_26",
+            "floor_10_node_27"
+          ],
+          "position": {
+            "x": 280,
+            "y": 360
+          }
+        },
+        "floor_9_node_24": {
+          "id": "floor_9_node_24",
+          "type_id": "elite",
+          "floor_index": 9,
+          "column_index": 1,
+          "connections": [
+            "floor_10_node_26",
+            "floor_10_node_27"
+          ],
+          "position": {
+            "x": 400,
+            "y": 360
+          }
+        },
+        "floor_9_node_25": {
+          "id": "floor_9_node_25",
+          "type_id": "temple",
+          "floor_index": 9,
+          "column_index": 2,
+          "connections": [
+            "floor_10_node_26",
+            "floor_10_node_27"
+          ],
+          "position": {
+            "x": 520,
+            "y": 360
+          }
+        },
+        "floor_10_node_26": {
+          "id": "floor_10_node_26",
+          "type_id": "rest",
+          "floor_index": 10,
+          "column_index": 0,
+          "connections": [
+            "floor_11_node_28"
+          ],
+          "position": {
+            "x": 340,
+            "y": 260
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_10_node_27": {
+          "id": "floor_10_node_27",
+          "type_id": "event",
+          "floor_index": 10,
+          "column_index": 1,
+          "connections": [
+            "floor_11_node_28"
+          ],
+          "position": {
+            "x": 460,
+            "y": 260
+          }
+        },
+        "floor_11_node_28": {
+          "id": "floor_11_node_28",
+          "type_id": "boss",
+          "floor_index": 11,
+          "column_index": 0,
+          "connections": [],
+          "position": {
+            "x": 400,
+            "y": 160
+          }
+        },
+        "start_0": {
+          "id": "start_0",
+          "type_id": "start",
+          "floor_index": 0,
+          "column_index": 0,
+          "connections": [
+            "floor_1_node_1",
+            "floor_1_node_2"
+          ],
+          "position": {
+            "x": 400,
+            "y": 1260
+          }
+        }
+      },
+      "start_id": "start_0",
+      "boss_id": "boss_0"
+    }
+  },
+  {
+    "name": "第二章 剑出江湖",
+    "description": "行剑江湖，刀光剑影。各路高手争相切磋。",
+    "bg": "res://assets/chapter/1/bg.png",
+    "map": {
+      "floors": [
+        [
+          {
+            "id": "start_0",
+            "type_id": "start",
+            "floor_index": 0,
+            "column_index": 0,
+            "connections": [
+              "floor_1_node_2",
+              "floor_1_node_1",
+              "floor_1_node_0",
+              "floor_1_node_3"
+            ],
+            "position": {
+              "x": 400,
+              "y": 1260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_1_node_0",
+            "type_id": "rest",
+            "floor_index": 1,
+            "column_index": 0,
+            "connections": [
+              "floor_2_node_7",
+              "floor_2_node_6",
+              "floor_2_node_5"
+            ],
+            "position": {
+              "x": 220,
+              "y": 1160
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_1_node_1",
+            "type_id": "shop",
+            "floor_index": 1,
+            "column_index": 1,
+            "connections": [
+              "floor_2_node_6",
+              "floor_2_node_7"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1160
+            }
+          },
+          {
+            "id": "floor_1_node_2",
+            "type_id": "dojo",
+            "floor_index": 1,
+            "column_index": 2,
+            "connections": [
+              "floor_2_node_7",
+              "floor_2_node_4",
+              "floor_2_node_6"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1160
+            },
+            "dojo_name": "雷鸣武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_1_node_3",
+            "type_id": "elite",
+            "floor_index": 1,
+            "column_index": 3,
+            "connections": [
+              "floor_2_node_5",
+              "floor_2_node_7"
+            ],
+            "position": {
+              "x": 580,
+              "y": 1160
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_2_node_4",
+            "type_id": "combat",
+            "floor_index": 2,
+            "column_index": 0,
+            "connections": [
+              "floor_3_node_8",
+              "floor_3_node_9"
+            ],
+            "position": {
+              "x": 220,
+              "y": 1060
+            }
+          },
+          {
+            "id": "floor_2_node_5",
+            "type_id": "elite",
+            "floor_index": 2,
+            "column_index": 1,
+            "connections": [
+              "floor_3_node_8",
+              "floor_3_node_11",
+              "floor_3_node_9"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1060
+            }
+          },
+          {
+            "id": "floor_2_node_6",
+            "type_id": "event",
+            "floor_index": 2,
+            "column_index": 2,
+            "connections": [
+              "floor_3_node_8",
+              "floor_3_node_9",
+              "floor_3_node_10"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1060
+            }
+          },
+          {
+            "id": "floor_2_node_7",
+            "type_id": "blacksmith",
+            "floor_index": 2,
+            "column_index": 3,
+            "connections": [
+              "floor_3_node_8",
+              "floor_3_node_11",
+              "floor_3_node_9"
+            ],
+            "position": {
+              "x": 580,
+              "y": 1060
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_3_node_8",
+            "type_id": "event",
+            "floor_index": 3,
+            "column_index": 0,
+            "connections": [
+              "floor_4_node_12",
+              "floor_4_node_13"
+            ],
+            "position": {
+              "x": 220,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_3_node_9",
+            "type_id": "elite",
+            "floor_index": 3,
+            "column_index": 1,
+            "connections": [
+              "floor_4_node_13",
+              "floor_4_node_12"
+            ],
+            "position": {
+              "x": 340,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_3_node_10",
+            "type_id": "combat",
+            "floor_index": 3,
+            "column_index": 2,
+            "connections": [
+              "floor_4_node_13",
+              "floor_4_node_12"
+            ],
+            "position": {
+              "x": 460,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_3_node_11",
+            "type_id": "shop",
+            "floor_index": 3,
+            "column_index": 3,
+            "connections": [
+              "floor_4_node_13",
+              "floor_4_node_12"
+            ],
+            "position": {
+              "x": 580,
+              "y": 960
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_4_node_12",
+            "type_id": "combat",
+            "floor_index": 4,
+            "column_index": 0,
+            "connections": [
+              "floor_5_node_14",
+              "floor_5_node_17",
+              "floor_5_node_15",
+              "floor_5_node_16"
+            ],
+            "position": {
+              "x": 340,
+              "y": 860
+            }
+          },
+          {
+            "id": "floor_4_node_13",
+            "type_id": "elite",
+            "floor_index": 4,
+            "column_index": 1,
+            "connections": [
+              "floor_5_node_17",
+              "floor_5_node_15"
+            ],
+            "position": {
+              "x": 460,
+              "y": 860
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_5_node_14",
+            "type_id": "rest",
+            "floor_index": 5,
+            "column_index": 0,
+            "connections": [
+              "floor_6_node_19",
+              "floor_6_node_18"
+            ],
+            "position": {
+              "x": 220,
+              "y": 760
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_5_node_15",
+            "type_id": "elite",
+            "floor_index": 5,
+            "column_index": 1,
+            "connections": [
+              "floor_6_node_19",
+              "floor_6_node_18"
+            ],
+            "position": {
+              "x": 340,
+              "y": 760
+            }
+          },
+          {
+            "id": "floor_5_node_16",
+            "type_id": "event",
+            "floor_index": 5,
+            "column_index": 2,
+            "connections": [
+              "floor_6_node_18",
+              "floor_6_node_19"
+            ],
+            "position": {
+              "x": 460,
+              "y": 760
+            }
+          },
+          {
+            "id": "floor_5_node_17",
+            "type_id": "combat",
+            "floor_index": 5,
+            "column_index": 3,
+            "connections": [
+              "floor_6_node_18",
+              "floor_6_node_19"
+            ],
+            "position": {
+              "x": 580,
+              "y": 760
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_6_node_18",
+            "type_id": "combat",
+            "floor_index": 6,
+            "column_index": 0,
+            "connections": [
+              "floor_7_node_23",
+              "floor_7_node_22"
+            ],
+            "position": {
+              "x": 340,
+              "y": 660
+            }
+          },
+          {
+            "id": "floor_6_node_19",
+            "type_id": "tavern",
+            "floor_index": 6,
+            "column_index": 1,
+            "connections": [
+              "floor_7_node_21",
+              "floor_7_node_20",
+              "floor_7_node_22"
+            ],
+            "position": {
+              "x": 460,
+              "y": 660
+            },
+            "work_name": "望月轩",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_7_node_20",
+            "type_id": "combat",
+            "floor_index": 7,
+            "column_index": 0,
+            "connections": [
+              "floor_8_node_24",
+              "floor_8_node_25",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 220,
+              "y": 560
+            }
+          },
+          {
+            "id": "floor_7_node_21",
+            "type_id": "event",
+            "floor_index": 7,
+            "column_index": 1,
+            "connections": [
+              "floor_8_node_24",
+              "floor_8_node_25",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 340,
+              "y": 560
+            }
+          },
+          {
+            "id": "floor_7_node_22",
+            "type_id": "tavern",
+            "floor_index": 7,
+            "column_index": 2,
+            "connections": [
+              "floor_8_node_24",
+              "floor_8_node_25",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 460,
+              "y": 560
+            },
+            "work_name": "村口酒馆",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_7_node_23",
+            "type_id": "shop",
+            "floor_index": 7,
+            "column_index": 3,
+            "connections": [
+              "floor_8_node_24",
+              "floor_8_node_25",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 580,
+              "y": 560
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_8_node_24",
+            "type_id": "combat",
+            "floor_index": 8,
+            "column_index": 0,
+            "connections": [
+              "floor_9_node_27",
+              "floor_9_node_28"
+            ],
+            "position": {
+              "x": 280,
+              "y": 460
+            }
+          },
+          {
+            "id": "floor_8_node_25",
+            "type_id": "shop",
+            "floor_index": 8,
+            "column_index": 1,
+            "connections": [
+              "floor_9_node_28",
+              "floor_9_node_27"
+            ],
+            "position": {
+              "x": 400,
+              "y": 460
+            }
+          },
+          {
+            "id": "floor_8_node_26",
+            "type_id": "dojo",
+            "floor_index": 8,
+            "column_index": 2,
+            "connections": [
+              "floor_9_node_27",
+              "floor_9_node_28"
+            ],
+            "position": {
+              "x": 520,
+              "y": 460
+            },
+            "dojo_name": "龙脊武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+                "gainExp": 30
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_9_node_27",
+            "type_id": "tavern",
+            "floor_index": 9,
+            "column_index": 0,
+            "connections": [
+              "floor_10_node_30",
+              "floor_10_node_29"
+            ],
+            "position": {
+              "x": 340,
+              "y": 360
+            },
+            "work_name": "望月轩",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_9_node_28",
+            "type_id": "combat",
+            "floor_index": 9,
+            "column_index": 1,
+            "connections": [
+              "floor_10_node_30",
+              "floor_10_node_29"
+            ],
+            "position": {
+              "x": 460,
+              "y": 360
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_10_node_29",
+            "type_id": "dojo",
+            "floor_index": 10,
+            "column_index": 0,
+            "connections": [
+              "floor_11_node_33",
+              "floor_11_node_32"
+            ],
+            "position": {
+              "x": 340,
+              "y": 260
+            },
+            "dojo_name": "金刚武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_10_node_30",
+            "type_id": "elite",
+            "floor_index": 10,
+            "column_index": 1,
+            "connections": [
+              "floor_11_node_31",
+              "floor_11_node_32"
+            ],
+            "position": {
+              "x": 460,
+              "y": 260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_11_node_31",
+            "type_id": "blacksmith",
+            "floor_index": 11,
+            "column_index": 0,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 280,
+              "y": 160
+            }
+          },
+          {
+            "id": "floor_11_node_32",
+            "type_id": "tavern",
+            "floor_index": 11,
+            "column_index": 1,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 400,
+              "y": 160
+            },
+            "work_name": "十里酒铺",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_11_node_33",
+            "type_id": "combat",
+            "floor_index": 11,
+            "column_index": 2,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 520,
+              "y": 160
+            }
+          }
+        ],
+        [
+          {
+            "id": "boss_0",
+            "type_id": "boss",
+            "floor_index": 12,
+            "column_index": 0,
+            "connections": [],
+            "position": {
+              "x": 400,
+              "y": 60
+            }
+          }
+        ]
+      ],
+      "all_nodes": {
+        "start_0": {
+          "id": "start_0",
+          "type_id": "start",
+          "floor_index": 0,
+          "column_index": 0,
+          "connections": [
+            "floor_1_node_2",
+            "floor_1_node_1",
+            "floor_1_node_0",
+            "floor_1_node_3"
+          ],
+          "position": {
+            "x": 400,
+            "y": 1260
+          }
+        },
+        "floor_1_node_0": {
+          "id": "floor_1_node_0",
+          "type_id": "rest",
+          "floor_index": 1,
+          "column_index": 0,
+          "connections": [
+            "floor_2_node_7",
+            "floor_2_node_6",
+            "floor_2_node_5"
+          ],
+          "position": {
+            "x": 220,
+            "y": 1160
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_1_node_1": {
+          "id": "floor_1_node_1",
+          "type_id": "shop",
+          "floor_index": 1,
+          "column_index": 1,
+          "connections": [
+            "floor_2_node_6",
+            "floor_2_node_7"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1160
+          }
+        },
+        "floor_1_node_2": {
+          "id": "floor_1_node_2",
+          "type_id": "dojo",
+          "floor_index": 1,
+          "column_index": 2,
+          "connections": [
+            "floor_2_node_7",
+            "floor_2_node_4",
+            "floor_2_node_6"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1160
+          },
+          "dojo_name": "雷鸣武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_1_node_3": {
+          "id": "floor_1_node_3",
+          "type_id": "elite",
+          "floor_index": 1,
+          "column_index": 3,
+          "connections": [
+            "floor_2_node_5",
+            "floor_2_node_7"
+          ],
+          "position": {
+            "x": 580,
+            "y": 1160
+          }
+        },
+        "floor_2_node_4": {
+          "id": "floor_2_node_4",
+          "type_id": "combat",
+          "floor_index": 2,
+          "column_index": 0,
+          "connections": [
+            "floor_3_node_8",
+            "floor_3_node_9"
+          ],
+          "position": {
+            "x": 220,
+            "y": 1060
+          }
+        },
+        "floor_2_node_5": {
+          "id": "floor_2_node_5",
+          "type_id": "elite",
+          "floor_index": 2,
+          "column_index": 1,
+          "connections": [
+            "floor_3_node_8",
+            "floor_3_node_11",
+            "floor_3_node_9"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1060
+          }
+        },
+        "floor_2_node_6": {
+          "id": "floor_2_node_6",
+          "type_id": "event",
+          "floor_index": 2,
+          "column_index": 2,
+          "connections": [
+            "floor_3_node_8",
+            "floor_3_node_9",
+            "floor_3_node_10"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1060
+          }
+        },
+        "floor_2_node_7": {
+          "id": "floor_2_node_7",
+          "type_id": "blacksmith",
+          "floor_index": 2,
+          "column_index": 3,
+          "connections": [
+            "floor_3_node_8",
+            "floor_3_node_11",
+            "floor_3_node_9"
+          ],
+          "position": {
+            "x": 580,
+            "y": 1060
+          }
+        },
+        "floor_3_node_8": {
+          "id": "floor_3_node_8",
+          "type_id": "event",
+          "floor_index": 3,
+          "column_index": 0,
+          "connections": [
+            "floor_4_node_12",
+            "floor_4_node_13"
+          ],
+          "position": {
+            "x": 220,
+            "y": 960
+          }
+        },
+        "floor_3_node_9": {
+          "id": "floor_3_node_9",
+          "type_id": "elite",
+          "floor_index": 3,
+          "column_index": 1,
+          "connections": [
+            "floor_4_node_13",
+            "floor_4_node_12"
+          ],
+          "position": {
+            "x": 340,
+            "y": 960
+          }
+        },
+        "floor_3_node_10": {
+          "id": "floor_3_node_10",
+          "type_id": "combat",
+          "floor_index": 3,
+          "column_index": 2,
+          "connections": [
+            "floor_4_node_13",
+            "floor_4_node_12"
+          ],
+          "position": {
+            "x": 460,
+            "y": 960
+          }
+        },
+        "floor_3_node_11": {
+          "id": "floor_3_node_11",
+          "type_id": "shop",
+          "floor_index": 3,
+          "column_index": 3,
+          "connections": [
+            "floor_4_node_13",
+            "floor_4_node_12"
+          ],
+          "position": {
+            "x": 580,
+            "y": 960
+          }
+        },
+        "floor_4_node_12": {
+          "id": "floor_4_node_12",
+          "type_id": "combat",
+          "floor_index": 4,
+          "column_index": 0,
+          "connections": [
+            "floor_5_node_14",
+            "floor_5_node_17",
+            "floor_5_node_15",
+            "floor_5_node_16"
+          ],
+          "position": {
+            "x": 340,
+            "y": 860
+          }
+        },
+        "floor_4_node_13": {
+          "id": "floor_4_node_13",
+          "type_id": "elite",
+          "floor_index": 4,
+          "column_index": 1,
+          "connections": [
+            "floor_5_node_17",
+            "floor_5_node_15"
+          ],
+          "position": {
+            "x": 460,
+            "y": 860
+          }
+        },
+        "floor_5_node_14": {
+          "id": "floor_5_node_14",
+          "type_id": "rest",
+          "floor_index": 5,
+          "column_index": 0,
+          "connections": [
+            "floor_6_node_19",
+            "floor_6_node_18"
+          ],
+          "position": {
+            "x": 220,
+            "y": 760
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_5_node_15": {
+          "id": "floor_5_node_15",
+          "type_id": "elite",
+          "floor_index": 5,
+          "column_index": 1,
+          "connections": [
+            "floor_6_node_19",
+            "floor_6_node_18"
+          ],
+          "position": {
+            "x": 340,
+            "y": 760
+          }
+        },
+        "floor_5_node_16": {
+          "id": "floor_5_node_16",
+          "type_id": "event",
+          "floor_index": 5,
+          "column_index": 2,
+          "connections": [
+            "floor_6_node_18",
+            "floor_6_node_19"
+          ],
+          "position": {
+            "x": 460,
+            "y": 760
+          }
+        },
+        "floor_5_node_17": {
+          "id": "floor_5_node_17",
+          "type_id": "combat",
+          "floor_index": 5,
+          "column_index": 3,
+          "connections": [
+            "floor_6_node_18",
+            "floor_6_node_19"
+          ],
+          "position": {
+            "x": 580,
+            "y": 760
+          }
+        },
+        "floor_6_node_18": {
+          "id": "floor_6_node_18",
+          "type_id": "combat",
+          "floor_index": 6,
+          "column_index": 0,
+          "connections": [
+            "floor_7_node_23",
+            "floor_7_node_22"
+          ],
+          "position": {
+            "x": 340,
+            "y": 660
+          }
+        },
+        "floor_6_node_19": {
+          "id": "floor_6_node_19",
+          "type_id": "tavern",
+          "floor_index": 6,
+          "column_index": 1,
+          "connections": [
+            "floor_7_node_21",
+            "floor_7_node_20",
+            "floor_7_node_22"
+          ],
+          "position": {
+            "x": 460,
+            "y": 660
+          },
+          "work_name": "望月轩",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_7_node_20": {
+          "id": "floor_7_node_20",
+          "type_id": "combat",
+          "floor_index": 7,
+          "column_index": 0,
+          "connections": [
+            "floor_8_node_24",
+            "floor_8_node_25",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 220,
+            "y": 560
+          }
+        },
+        "floor_7_node_21": {
+          "id": "floor_7_node_21",
+          "type_id": "event",
+          "floor_index": 7,
+          "column_index": 1,
+          "connections": [
+            "floor_8_node_24",
+            "floor_8_node_25",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 340,
+            "y": 560
+          }
+        },
+        "floor_7_node_22": {
+          "id": "floor_7_node_22",
+          "type_id": "tavern",
+          "floor_index": 7,
+          "column_index": 2,
+          "connections": [
+            "floor_8_node_24",
+            "floor_8_node_25",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 460,
+            "y": 560
+          },
+          "work_name": "村口酒馆",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_7_node_23": {
+          "id": "floor_7_node_23",
+          "type_id": "shop",
+          "floor_index": 7,
+          "column_index": 3,
+          "connections": [
+            "floor_8_node_24",
+            "floor_8_node_25",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 580,
+            "y": 560
+          }
+        },
+        "floor_8_node_24": {
+          "id": "floor_8_node_24",
+          "type_id": "combat",
+          "floor_index": 8,
+          "column_index": 0,
+          "connections": [
+            "floor_9_node_27",
+            "floor_9_node_28"
+          ],
+          "position": {
+            "x": 280,
+            "y": 460
+          }
+        },
+        "floor_8_node_25": {
+          "id": "floor_8_node_25",
+          "type_id": "shop",
+          "floor_index": 8,
+          "column_index": 1,
+          "connections": [
+            "floor_9_node_28",
+            "floor_9_node_27"
+          ],
+          "position": {
+            "x": 400,
+            "y": 460
+          }
+        },
+        "floor_8_node_26": {
+          "id": "floor_8_node_26",
+          "type_id": "dojo",
+          "floor_index": 8,
+          "column_index": 2,
+          "connections": [
+            "floor_9_node_27",
+            "floor_9_node_28"
+          ],
+          "position": {
+            "x": 520,
+            "y": 460
+          },
+          "dojo_name": "龙脊武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_9_node_27": {
+          "id": "floor_9_node_27",
+          "type_id": "tavern",
+          "floor_index": 9,
+          "column_index": 0,
+          "connections": [
+            "floor_10_node_30",
+            "floor_10_node_29"
+          ],
+          "position": {
+            "x": 340,
+            "y": 360
+          },
+          "work_name": "望月轩",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_9_node_28": {
+          "id": "floor_9_node_28",
+          "type_id": "combat",
+          "floor_index": 9,
+          "column_index": 1,
+          "connections": [
+            "floor_10_node_30",
+            "floor_10_node_29"
+          ],
+          "position": {
+            "x": 460,
+            "y": 360
+          }
+        },
+        "floor_10_node_29": {
+          "id": "floor_10_node_29",
+          "type_id": "dojo",
+          "floor_index": 10,
+          "column_index": 0,
+          "connections": [
+            "floor_11_node_33",
+            "floor_11_node_32"
+          ],
+          "position": {
+            "x": 340,
+            "y": 260
+          },
+          "dojo_name": "金刚武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_10_node_30": {
+          "id": "floor_10_node_30",
+          "type_id": "elite",
+          "floor_index": 10,
+          "column_index": 1,
+          "connections": [
+            "floor_11_node_31",
+            "floor_11_node_32"
+          ],
+          "position": {
+            "x": 460,
+            "y": 260
+          }
+        },
+        "floor_11_node_31": {
+          "id": "floor_11_node_31",
+          "type_id": "blacksmith",
+          "floor_index": 11,
+          "column_index": 0,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 280,
+            "y": 160
+          }
+        },
+        "floor_11_node_32": {
+          "id": "floor_11_node_32",
+          "type_id": "tavern",
+          "floor_index": 11,
+          "column_index": 1,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 400,
+            "y": 160
+          },
+          "work_name": "十里酒铺",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_11_node_33": {
+          "id": "floor_11_node_33",
+          "type_id": "combat",
+          "floor_index": 11,
+          "column_index": 2,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 520,
+            "y": 160
+          }
+        },
+        "boss_0": {
+          "id": "boss_0",
+          "type_id": "boss",
+          "floor_index": 12,
+          "column_index": 0,
+          "connections": [],
+          "position": {
+            "x": 400,
+            "y": 60
+          }
+        }
+      },
+      "start_id": "start_0",
+      "boss_id": "boss_0"
+    }
+  },
+  {
+    "name": "第三章 魔影重重",
+    "description": "江湖暗流涌动，魔教弟子四处作恶。",
+    "bg": "res://assets/chapter/1/bg.png",
+    "map": {
+      "floors": [
+        [
+          {
+            "id": "start_0",
+            "type_id": "start",
+            "floor_index": 0,
+            "column_index": 0,
+            "connections": [
+              "floor_1_node_1",
+              "floor_1_node_0",
+              "floor_1_node_2"
+            ],
+            "position": {
+              "x": 400,
+              "y": 1460
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_1_node_0",
+            "type_id": "hermit",
+            "floor_index": 1,
+            "column_index": 0,
+            "connections": [
+              "floor_2_node_5",
+              "floor_2_node_4"
+            ],
+            "position": {
+              "x": 280,
+              "y": 1360
+            }
+          },
+          {
+            "id": "floor_1_node_1",
+            "type_id": "combat",
+            "floor_index": 1,
+            "column_index": 1,
+            "connections": [
+              "floor_2_node_3",
+              "floor_2_node_5"
+            ],
+            "position": {
+              "x": 400,
+              "y": 1360
+            }
+          },
+          {
+            "id": "floor_1_node_2",
+            "type_id": "tavern",
+            "floor_index": 1,
+            "column_index": 2,
+            "connections": [
+              "floor_2_node_3",
+              "floor_2_node_4",
+              "floor_2_node_5"
+            ],
+            "position": {
+              "x": 520,
+              "y": 1360
+            },
+            "work_name": "村口酒馆",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_2_node_3",
+            "type_id": "elite",
+            "floor_index": 2,
+            "column_index": 0,
+            "connections": [
+              "floor_3_node_6",
+              "floor_3_node_7"
+            ],
+            "position": {
+              "x": 280,
+              "y": 1260
+            }
+          },
+          {
+            "id": "floor_2_node_4",
+            "type_id": "hermit",
+            "floor_index": 2,
+            "column_index": 1,
+            "connections": [
+              "floor_3_node_6",
+              "floor_3_node_9"
+            ],
+            "position": {
+              "x": 400,
+              "y": 1260
+            }
+          },
+          {
+            "id": "floor_2_node_5",
+            "type_id": "shop",
+            "floor_index": 2,
+            "column_index": 2,
+            "connections": [
+              "floor_3_node_8",
+              "floor_3_node_9",
+              "floor_3_node_6"
+            ],
+            "position": {
+              "x": 520,
+              "y": 1260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_3_node_6",
+            "type_id": "dojo",
+            "floor_index": 3,
+            "column_index": 0,
+            "connections": [
+              "floor_4_node_10",
+              "floor_4_node_13"
+            ],
+            "position": {
+              "x": 220,
+              "y": 1160
+            },
+            "dojo_name": "龙脊武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_3_node_7",
+            "type_id": "tavern",
+            "floor_index": 3,
+            "column_index": 1,
+            "connections": [
+              "floor_4_node_13",
+              "floor_4_node_12"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1160
+            },
+            "work_name": "村口酒馆",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_3_node_8",
+            "type_id": "hermit",
+            "floor_index": 3,
+            "column_index": 2,
+            "connections": [
+              "floor_4_node_12",
+              "floor_4_node_11",
+              "floor_4_node_13"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1160
+            }
+          },
+          {
+            "id": "floor_3_node_9",
+            "type_id": "shop",
+            "floor_index": 3,
+            "column_index": 3,
+            "connections": [
+              "floor_4_node_11",
+              "floor_4_node_10"
+            ],
+            "position": {
+              "x": 580,
+              "y": 1160
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_4_node_10",
+            "type_id": "combat",
+            "floor_index": 4,
+            "column_index": 0,
+            "connections": [
+              "floor_5_node_17",
+              "floor_5_node_14"
+            ],
+            "position": {
+              "x": 220,
+              "y": 1060
+            }
+          },
+          {
+            "id": "floor_4_node_11",
+            "type_id": "event",
+            "floor_index": 4,
+            "column_index": 1,
+            "connections": [
+              "floor_5_node_16",
+              "floor_5_node_15",
+              "floor_5_node_17"
+            ],
+            "position": {
+              "x": 340,
+              "y": 1060
+            }
+          },
+          {
+            "id": "floor_4_node_12",
+            "type_id": "dojo",
+            "floor_index": 4,
+            "column_index": 2,
+            "connections": [
+              "floor_5_node_16",
+              "floor_5_node_15",
+              "floor_5_node_14"
+            ],
+            "position": {
+              "x": 460,
+              "y": 1060
+            },
+            "dojo_name": "金刚武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_4_node_13",
+            "type_id": "elite",
+            "floor_index": 4,
+            "column_index": 3,
+            "connections": [
+              "floor_5_node_14",
+              "floor_5_node_15",
+              "floor_5_node_16"
+            ],
+            "position": {
+              "x": 580,
+              "y": 1060
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_5_node_14",
+            "type_id": "combat",
+            "floor_index": 5,
+            "column_index": 0,
+            "connections": [
+              "floor_6_node_20",
+              "floor_6_node_19"
+            ],
+            "position": {
+              "x": 220,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_5_node_15",
+            "type_id": "rest",
+            "floor_index": 5,
+            "column_index": 1,
+            "connections": [
+              "floor_6_node_21",
+              "floor_6_node_20",
+              "floor_6_node_19"
+            ],
+            "position": {
+              "x": 340,
+              "y": 960
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_5_node_16",
+            "type_id": "event",
+            "floor_index": 5,
+            "column_index": 2,
+            "connections": [
+              "floor_6_node_19",
+              "floor_6_node_18",
+              "floor_6_node_20"
+            ],
+            "position": {
+              "x": 460,
+              "y": 960
+            }
+          },
+          {
+            "id": "floor_5_node_17",
+            "type_id": "dojo",
+            "floor_index": 5,
+            "column_index": 3,
+            "connections": [
+              "floor_6_node_21",
+              "floor_6_node_20"
+            ],
+            "position": {
+              "x": 580,
+              "y": 960
+            },
+            "dojo_name": "烈焰武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+                "gainExp": 30
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "floor_6_node_18",
+            "type_id": "dojo",
+            "floor_index": 6,
+            "column_index": 0,
+            "connections": [
+              "floor_7_node_25",
+              "floor_7_node_22",
+              "floor_7_node_23"
+            ],
+            "position": {
+              "x": 220,
+              "y": 860
+            },
+            "dojo_name": "烈焰武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_6_node_19",
+            "type_id": "hermit",
+            "floor_index": 6,
+            "column_index": 1,
+            "connections": [
+              "floor_7_node_23",
+              "floor_7_node_24"
+            ],
+            "position": {
+              "x": 340,
+              "y": 860
+            }
+          },
+          {
+            "id": "floor_6_node_20",
+            "type_id": "rest",
+            "floor_index": 6,
+            "column_index": 2,
+            "connections": [
+              "floor_7_node_22",
+              "floor_7_node_23",
+              "floor_7_node_24"
+            ],
+            "position": {
+              "x": 460,
+              "y": 860
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_6_node_21",
+            "type_id": "combat",
+            "floor_index": 6,
+            "column_index": 3,
+            "connections": [
+              "floor_7_node_25",
+              "floor_7_node_24",
+              "floor_7_node_23"
+            ],
+            "position": {
+              "x": 580,
+              "y": 860
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_7_node_22",
+            "type_id": "elite",
+            "floor_index": 7,
+            "column_index": 0,
+            "connections": [
+              "floor_8_node_29",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 220,
+              "y": 760
+            }
+          },
+          {
+            "id": "floor_7_node_23",
+            "type_id": "combat",
+            "floor_index": 7,
+            "column_index": 1,
+            "connections": [
+              "floor_8_node_28",
+              "floor_8_node_26",
+              "floor_8_node_29"
+            ],
+            "position": {
+              "x": 340,
+              "y": 760
+            }
+          },
+          {
+            "id": "floor_7_node_24",
+            "type_id": "dojo",
+            "floor_index": 7,
+            "column_index": 2,
+            "connections": [
+              "floor_8_node_28",
+              "floor_8_node_29",
+              "floor_8_node_26"
+            ],
+            "position": {
+              "x": 460,
+              "y": 760
+            },
+            "dojo_name": "铁骨武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_7_node_25",
+            "type_id": "hermit",
+            "floor_index": 7,
+            "column_index": 3,
+            "connections": [
+              "floor_8_node_26",
+              "floor_8_node_28",
+              "floor_8_node_29",
+              "floor_8_node_27"
+            ],
+            "position": {
+              "x": 580,
+              "y": 760
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_8_node_26",
+            "type_id": "rest",
+            "floor_index": 8,
+            "column_index": 0,
+            "connections": [
+              "floor_9_node_32",
+              "floor_9_node_31"
+            ],
+            "position": {
+              "x": 220,
+              "y": 660
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_8_node_27",
+            "type_id": "elite",
+            "floor_index": 8,
+            "column_index": 1,
+            "connections": [
+              "floor_9_node_32",
+              "floor_9_node_31",
+              "floor_9_node_30"
+            ],
+            "position": {
+              "x": 340,
+              "y": 660
+            }
+          },
+          {
+            "id": "floor_8_node_28",
+            "type_id": "combat",
+            "floor_index": 8,
+            "column_index": 2,
+            "connections": [
+              "floor_9_node_30",
+              "floor_9_node_31",
+              "floor_9_node_32"
+            ],
+            "position": {
+              "x": 460,
+              "y": 660
+            }
+          },
+          {
+            "id": "floor_8_node_29",
+            "type_id": "temple",
+            "floor_index": 8,
+            "column_index": 3,
+            "connections": [
+              "floor_9_node_31",
+              "floor_9_node_32",
+              "floor_9_node_30"
+            ],
+            "position": {
+              "x": 580,
+              "y": 660
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_9_node_30",
+            "type_id": "event",
+            "floor_index": 9,
+            "column_index": 0,
+            "connections": [
+              "floor_10_node_34",
+              "floor_10_node_35"
+            ],
+            "position": {
+              "x": 280,
+              "y": 560
+            }
+          },
+          {
+            "id": "floor_9_node_31",
+            "type_id": "dojo",
+            "floor_index": 9,
+            "column_index": 1,
+            "connections": [
+              "floor_10_node_35",
+              "floor_10_node_33"
+            ],
+            "position": {
+              "x": 400,
+              "y": 560
+            },
+            "dojo_name": "虎威武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+                "gainExp": 30
+              }
+            ]
+          },
+          {
+            "id": "floor_9_node_32",
+            "type_id": "hermit",
+            "floor_index": 9,
+            "column_index": 2,
+            "connections": [
+              "floor_10_node_35",
+              "floor_10_node_34"
+            ],
+            "position": {
+              "x": 520,
+              "y": 560
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_10_node_33",
+            "type_id": "combat",
+            "floor_index": 10,
+            "column_index": 0,
+            "connections": [
+              "floor_11_node_38",
+              "floor_11_node_39"
+            ],
+            "position": {
+              "x": 280,
+              "y": 460
+            }
+          },
+          {
+            "id": "floor_10_node_34",
+            "type_id": "elite",
+            "floor_index": 10,
+            "column_index": 1,
+            "connections": [
+              "floor_11_node_36",
+              "floor_11_node_39"
+            ],
+            "position": {
+              "x": 400,
+              "y": 460
+            }
+          },
+          {
+            "id": "floor_10_node_35",
+            "type_id": "shop",
+            "floor_index": 10,
+            "column_index": 2,
+            "connections": [
+              "floor_11_node_39",
+              "floor_11_node_36",
+              "floor_11_node_37"
+            ],
+            "position": {
+              "x": 520,
+              "y": 460
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_11_node_36",
+            "type_id": "combat",
+            "floor_index": 11,
+            "column_index": 0,
+            "connections": [
+              "floor_12_node_40",
+              "floor_12_node_41",
+              "floor_12_node_42"
+            ],
+            "position": {
+              "x": 220,
+              "y": 360
+            }
+          },
+          {
+            "id": "floor_11_node_37",
+            "type_id": "hermit",
+            "floor_index": 11,
+            "column_index": 1,
+            "connections": [
+              "floor_12_node_42",
+              "floor_12_node_41"
+            ],
+            "position": {
+              "x": 340,
+              "y": 360
+            }
+          },
+          {
+            "id": "floor_11_node_38",
+            "type_id": "temple",
+            "floor_index": 11,
+            "column_index": 2,
+            "connections": [
+              "floor_12_node_41",
+              "floor_12_node_40"
+            ],
+            "position": {
+              "x": 460,
+              "y": 360
+            }
+          },
+          {
+            "id": "floor_11_node_39",
+            "type_id": "elite",
+            "floor_index": 11,
+            "column_index": 3,
+            "connections": [
+              "floor_12_node_40",
+              "floor_12_node_41",
+              "floor_12_node_42"
+            ],
+            "position": {
+              "x": 580,
+              "y": 360
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_12_node_40",
+            "type_id": "hermit",
+            "floor_index": 12,
+            "column_index": 0,
+            "connections": [
+              "floor_13_node_45",
+              "floor_13_node_46",
+              "floor_13_node_44"
+            ],
+            "position": {
+              "x": 280,
+              "y": 260
+            }
+          },
+          {
+            "id": "floor_12_node_41",
+            "type_id": "tavern",
+            "floor_index": 12,
+            "column_index": 1,
+            "connections": [
+              "floor_13_node_46",
+              "floor_13_node_45",
+              "floor_13_node_44"
+            ],
+            "position": {
+              "x": 400,
+              "y": 260
+            },
+            "work_name": "望月轩",
+            "consume_cards": [
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "银两",
+                "count": 8
+              }
+            ]
+          },
+          {
+            "id": "floor_12_node_42",
+            "type_id": "elite",
+            "floor_index": 12,
+            "column_index": 2,
+            "connections": [
+              "floor_13_node_43",
+              "floor_13_node_44"
+            ],
+            "position": {
+              "x": 520,
+              "y": 260
+            }
+          }
+        ],
+        [
+          {
+            "id": "floor_13_node_43",
+            "type_id": "shop",
+            "floor_index": 13,
+            "column_index": 0,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 220,
+              "y": 160
+            }
+          },
+          {
+            "id": "floor_13_node_44",
+            "type_id": "hermit",
+            "floor_index": 13,
+            "column_index": 1,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 340,
+              "y": 160
+            }
+          },
+          {
+            "id": "floor_13_node_45",
+            "type_id": "rest",
+            "floor_index": 13,
+            "column_index": 2,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 460,
+              "y": 160
+            },
+            "produce_cards": [
+              {
+                "type": "寿元",
+                "count": 20
+              }
+            ]
+          },
+          {
+            "id": "floor_13_node_46",
+            "type_id": "dojo",
+            "floor_index": 13,
+            "column_index": 3,
+            "connections": [
+              "boss_0"
+            ],
+            "position": {
+              "x": 580,
+              "y": 160
+            },
+            "dojo_name": "烈焰武馆",
+            "consume_cards": [
+              {
+                "type": "银两",
+                "count": 5
+              },
+              {
+                "type": "寿元",
+                "count": 1
+              }
+            ],
+            "produce_cards": [
+              {
+                "type": "功法",
+                "count": 1,
+                "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+                "gainExp": 30
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "id": "boss_0",
+            "type_id": "boss",
+            "floor_index": 14,
+            "column_index": 0,
+            "connections": [],
+            "position": {
+              "x": 400,
+              "y": 60
+            }
+          }
+        ]
+      ],
+      "all_nodes": {
+        "start_0": {
+          "id": "start_0",
+          "type_id": "start",
+          "floor_index": 0,
+          "column_index": 0,
+          "connections": [
+            "floor_1_node_1",
+            "floor_1_node_0",
+            "floor_1_node_2"
+          ],
+          "position": {
+            "x": 400,
+            "y": 1460
+          }
+        },
+        "floor_1_node_0": {
+          "id": "floor_1_node_0",
+          "type_id": "hermit",
+          "floor_index": 1,
+          "column_index": 0,
+          "connections": [
+            "floor_2_node_5",
+            "floor_2_node_4"
+          ],
+          "position": {
+            "x": 280,
+            "y": 1360
+          }
+        },
+        "floor_1_node_1": {
+          "id": "floor_1_node_1",
+          "type_id": "combat",
+          "floor_index": 1,
+          "column_index": 1,
+          "connections": [
+            "floor_2_node_3",
+            "floor_2_node_5"
+          ],
+          "position": {
+            "x": 400,
+            "y": 1360
+          }
+        },
+        "floor_1_node_2": {
+          "id": "floor_1_node_2",
+          "type_id": "tavern",
+          "floor_index": 1,
+          "column_index": 2,
+          "connections": [
+            "floor_2_node_3",
+            "floor_2_node_4",
+            "floor_2_node_5"
+          ],
+          "position": {
+            "x": 520,
+            "y": 1360
+          },
+          "work_name": "村口酒馆",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_2_node_3": {
+          "id": "floor_2_node_3",
+          "type_id": "elite",
+          "floor_index": 2,
+          "column_index": 0,
+          "connections": [
+            "floor_3_node_6",
+            "floor_3_node_7"
+          ],
+          "position": {
+            "x": 280,
+            "y": 1260
+          }
+        },
+        "floor_2_node_4": {
+          "id": "floor_2_node_4",
+          "type_id": "hermit",
+          "floor_index": 2,
+          "column_index": 1,
+          "connections": [
+            "floor_3_node_6",
+            "floor_3_node_9"
+          ],
+          "position": {
+            "x": 400,
+            "y": 1260
+          }
+        },
+        "floor_2_node_5": {
+          "id": "floor_2_node_5",
+          "type_id": "shop",
+          "floor_index": 2,
+          "column_index": 2,
+          "connections": [
+            "floor_3_node_8",
+            "floor_3_node_9",
+            "floor_3_node_6"
+          ],
+          "position": {
+            "x": 520,
+            "y": 1260
+          }
+        },
+        "floor_3_node_6": {
+          "id": "floor_3_node_6",
+          "type_id": "dojo",
+          "floor_index": 3,
+          "column_index": 0,
+          "connections": [
+            "floor_4_node_10",
+            "floor_4_node_13"
+          ],
+          "position": {
+            "x": 220,
+            "y": 1160
+          },
+          "dojo_name": "龙脊武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_3_node_7": {
+          "id": "floor_3_node_7",
+          "type_id": "tavern",
+          "floor_index": 3,
+          "column_index": 1,
+          "connections": [
+            "floor_4_node_13",
+            "floor_4_node_12"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1160
+          },
+          "work_name": "村口酒馆",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_3_node_8": {
+          "id": "floor_3_node_8",
+          "type_id": "hermit",
+          "floor_index": 3,
+          "column_index": 2,
+          "connections": [
+            "floor_4_node_12",
+            "floor_4_node_11",
+            "floor_4_node_13"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1160
+          }
+        },
+        "floor_3_node_9": {
+          "id": "floor_3_node_9",
+          "type_id": "shop",
+          "floor_index": 3,
+          "column_index": 3,
+          "connections": [
+            "floor_4_node_11",
+            "floor_4_node_10"
+          ],
+          "position": {
+            "x": 580,
+            "y": 1160
+          }
+        },
+        "floor_4_node_10": {
+          "id": "floor_4_node_10",
+          "type_id": "combat",
+          "floor_index": 4,
+          "column_index": 0,
+          "connections": [
+            "floor_5_node_17",
+            "floor_5_node_14"
+          ],
+          "position": {
+            "x": 220,
+            "y": 1060
+          }
+        },
+        "floor_4_node_11": {
+          "id": "floor_4_node_11",
+          "type_id": "event",
+          "floor_index": 4,
+          "column_index": 1,
+          "connections": [
+            "floor_5_node_16",
+            "floor_5_node_15",
+            "floor_5_node_17"
+          ],
+          "position": {
+            "x": 340,
+            "y": 1060
+          }
+        },
+        "floor_4_node_12": {
+          "id": "floor_4_node_12",
+          "type_id": "dojo",
+          "floor_index": 4,
+          "column_index": 2,
+          "connections": [
+            "floor_5_node_16",
+            "floor_5_node_15",
+            "floor_5_node_14"
+          ],
+          "position": {
+            "x": 460,
+            "y": 1060
+          },
+          "dojo_name": "金刚武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_4_node_13": {
+          "id": "floor_4_node_13",
+          "type_id": "elite",
+          "floor_index": 4,
+          "column_index": 3,
+          "connections": [
+            "floor_5_node_14",
+            "floor_5_node_15",
+            "floor_5_node_16"
+          ],
+          "position": {
+            "x": 580,
+            "y": 1060
+          }
+        },
+        "floor_5_node_14": {
+          "id": "floor_5_node_14",
+          "type_id": "combat",
+          "floor_index": 5,
+          "column_index": 0,
+          "connections": [
+            "floor_6_node_20",
+            "floor_6_node_19"
+          ],
+          "position": {
+            "x": 220,
+            "y": 960
+          }
+        },
+        "floor_5_node_15": {
+          "id": "floor_5_node_15",
+          "type_id": "rest",
+          "floor_index": 5,
+          "column_index": 1,
+          "connections": [
+            "floor_6_node_21",
+            "floor_6_node_20",
+            "floor_6_node_19"
+          ],
+          "position": {
+            "x": 340,
+            "y": 960
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_5_node_16": {
+          "id": "floor_5_node_16",
+          "type_id": "event",
+          "floor_index": 5,
+          "column_index": 2,
+          "connections": [
+            "floor_6_node_19",
+            "floor_6_node_18",
+            "floor_6_node_20"
+          ],
+          "position": {
+            "x": 460,
+            "y": 960
+          }
+        },
+        "floor_5_node_17": {
+          "id": "floor_5_node_17",
+          "type_id": "dojo",
+          "floor_index": 5,
+          "column_index": 3,
+          "connections": [
+            "floor_6_node_21",
+            "floor_6_node_20"
+          ],
+          "position": {
+            "x": 580,
+            "y": 960
+          },
+          "dojo_name": "烈焰武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_6_node_18": {
+          "id": "floor_6_node_18",
+          "type_id": "dojo",
+          "floor_index": 6,
+          "column_index": 0,
+          "connections": [
+            "floor_7_node_25",
+            "floor_7_node_22",
+            "floor_7_node_23"
+          ],
+          "position": {
+            "x": 220,
+            "y": 860
+          },
+          "dojo_name": "烈焰武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_6_node_19": {
+          "id": "floor_6_node_19",
+          "type_id": "hermit",
+          "floor_index": 6,
+          "column_index": 1,
+          "connections": [
+            "floor_7_node_23",
+            "floor_7_node_24"
+          ],
+          "position": {
+            "x": 340,
+            "y": 860
+          }
+        },
+        "floor_6_node_20": {
+          "id": "floor_6_node_20",
+          "type_id": "rest",
+          "floor_index": 6,
+          "column_index": 2,
+          "connections": [
+            "floor_7_node_22",
+            "floor_7_node_23",
+            "floor_7_node_24"
+          ],
+          "position": {
+            "x": 460,
+            "y": 860
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_6_node_21": {
+          "id": "floor_6_node_21",
+          "type_id": "combat",
+          "floor_index": 6,
+          "column_index": 3,
+          "connections": [
+            "floor_7_node_25",
+            "floor_7_node_24",
+            "floor_7_node_23"
+          ],
+          "position": {
+            "x": 580,
+            "y": 860
+          }
+        },
+        "floor_7_node_22": {
+          "id": "floor_7_node_22",
+          "type_id": "elite",
+          "floor_index": 7,
+          "column_index": 0,
+          "connections": [
+            "floor_8_node_29",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 220,
+            "y": 760
+          }
+        },
+        "floor_7_node_23": {
+          "id": "floor_7_node_23",
+          "type_id": "combat",
+          "floor_index": 7,
+          "column_index": 1,
+          "connections": [
+            "floor_8_node_28",
+            "floor_8_node_26",
+            "floor_8_node_29"
+          ],
+          "position": {
+            "x": 340,
+            "y": 760
+          }
+        },
+        "floor_7_node_24": {
+          "id": "floor_7_node_24",
+          "type_id": "dojo",
+          "floor_index": 7,
+          "column_index": 2,
+          "connections": [
+            "floor_8_node_28",
+            "floor_8_node_29",
+            "floor_8_node_26"
+          ],
+          "position": {
+            "x": 460,
+            "y": 760
+          },
+          "dojo_name": "铁骨武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_7_node_25": {
+          "id": "floor_7_node_25",
+          "type_id": "hermit",
+          "floor_index": 7,
+          "column_index": 3,
+          "connections": [
+            "floor_8_node_26",
+            "floor_8_node_28",
+            "floor_8_node_29",
+            "floor_8_node_27"
+          ],
+          "position": {
+            "x": 580,
+            "y": 760
+          }
+        },
+        "floor_8_node_26": {
+          "id": "floor_8_node_26",
+          "type_id": "rest",
+          "floor_index": 8,
+          "column_index": 0,
+          "connections": [
+            "floor_9_node_32",
+            "floor_9_node_31"
+          ],
+          "position": {
+            "x": 220,
+            "y": 660
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_8_node_27": {
+          "id": "floor_8_node_27",
+          "type_id": "elite",
+          "floor_index": 8,
+          "column_index": 1,
+          "connections": [
+            "floor_9_node_32",
+            "floor_9_node_31",
+            "floor_9_node_30"
+          ],
+          "position": {
+            "x": 340,
+            "y": 660
+          }
+        },
+        "floor_8_node_28": {
+          "id": "floor_8_node_28",
+          "type_id": "combat",
+          "floor_index": 8,
+          "column_index": 2,
+          "connections": [
+            "floor_9_node_30",
+            "floor_9_node_31",
+            "floor_9_node_32"
+          ],
+          "position": {
+            "x": 460,
+            "y": 660
+          }
+        },
+        "floor_8_node_29": {
+          "id": "floor_8_node_29",
+          "type_id": "temple",
+          "floor_index": 8,
+          "column_index": 3,
+          "connections": [
+            "floor_9_node_31",
+            "floor_9_node_32",
+            "floor_9_node_30"
+          ],
+          "position": {
+            "x": 580,
+            "y": 660
+          }
+        },
+        "floor_9_node_30": {
+          "id": "floor_9_node_30",
+          "type_id": "event",
+          "floor_index": 9,
+          "column_index": 0,
+          "connections": [
+            "floor_10_node_34",
+            "floor_10_node_35"
+          ],
+          "position": {
+            "x": 280,
+            "y": 560
+          }
+        },
+        "floor_9_node_31": {
+          "id": "floor_9_node_31",
+          "type_id": "dojo",
+          "floor_index": 9,
+          "column_index": 1,
+          "connections": [
+            "floor_10_node_35",
+            "floor_10_node_33"
+          ],
+          "position": {
+            "x": 400,
+            "y": 560
+          },
+          "dojo_name": "虎威武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+              "gainExp": 30
+            }
+          ]
+        },
+        "floor_9_node_32": {
+          "id": "floor_9_node_32",
+          "type_id": "hermit",
+          "floor_index": 9,
+          "column_index": 2,
+          "connections": [
+            "floor_10_node_35",
+            "floor_10_node_34"
+          ],
+          "position": {
+            "x": 520,
+            "y": 560
+          }
+        },
+        "floor_10_node_33": {
+          "id": "floor_10_node_33",
+          "type_id": "combat",
+          "floor_index": 10,
+          "column_index": 0,
+          "connections": [
+            "floor_11_node_38",
+            "floor_11_node_39"
+          ],
+          "position": {
+            "x": 280,
+            "y": 460
+          }
+        },
+        "floor_10_node_34": {
+          "id": "floor_10_node_34",
+          "type_id": "elite",
+          "floor_index": 10,
+          "column_index": 1,
+          "connections": [
+            "floor_11_node_36",
+            "floor_11_node_39"
+          ],
+          "position": {
+            "x": 400,
+            "y": 460
+          }
+        },
+        "floor_10_node_35": {
+          "id": "floor_10_node_35",
+          "type_id": "shop",
+          "floor_index": 10,
+          "column_index": 2,
+          "connections": [
+            "floor_11_node_39",
+            "floor_11_node_36",
+            "floor_11_node_37"
+          ],
+          "position": {
+            "x": 520,
+            "y": 460
+          }
+        },
+        "floor_11_node_36": {
+          "id": "floor_11_node_36",
+          "type_id": "combat",
+          "floor_index": 11,
+          "column_index": 0,
+          "connections": [
+            "floor_12_node_40",
+            "floor_12_node_41",
+            "floor_12_node_42"
+          ],
+          "position": {
+            "x": 220,
+            "y": 360
+          }
+        },
+        "floor_11_node_37": {
+          "id": "floor_11_node_37",
+          "type_id": "hermit",
+          "floor_index": 11,
+          "column_index": 1,
+          "connections": [
+            "floor_12_node_42",
+            "floor_12_node_41"
+          ],
+          "position": {
+            "x": 340,
+            "y": 360
+          }
+        },
+        "floor_11_node_38": {
+          "id": "floor_11_node_38",
+          "type_id": "temple",
+          "floor_index": 11,
+          "column_index": 2,
+          "connections": [
+            "floor_12_node_41",
+            "floor_12_node_40"
+          ],
+          "position": {
+            "x": 460,
+            "y": 360
+          }
+        },
+        "floor_11_node_39": {
+          "id": "floor_11_node_39",
+          "type_id": "elite",
+          "floor_index": 11,
+          "column_index": 3,
+          "connections": [
+            "floor_12_node_40",
+            "floor_12_node_41",
+            "floor_12_node_42"
+          ],
+          "position": {
+            "x": 580,
+            "y": 360
+          }
+        },
+        "floor_12_node_40": {
+          "id": "floor_12_node_40",
+          "type_id": "hermit",
+          "floor_index": 12,
+          "column_index": 0,
+          "connections": [
+            "floor_13_node_45",
+            "floor_13_node_46",
+            "floor_13_node_44"
+          ],
+          "position": {
+            "x": 280,
+            "y": 260
+          }
+        },
+        "floor_12_node_41": {
+          "id": "floor_12_node_41",
+          "type_id": "tavern",
+          "floor_index": 12,
+          "column_index": 1,
+          "connections": [
+            "floor_13_node_46",
+            "floor_13_node_45",
+            "floor_13_node_44"
+          ],
+          "position": {
+            "x": 400,
+            "y": 260
+          },
+          "work_name": "望月轩",
+          "consume_cards": [
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "银两",
+              "count": 8
+            }
+          ]
+        },
+        "floor_12_node_42": {
+          "id": "floor_12_node_42",
+          "type_id": "elite",
+          "floor_index": 12,
+          "column_index": 2,
+          "connections": [
+            "floor_13_node_43",
+            "floor_13_node_44"
+          ],
+          "position": {
+            "x": 520,
+            "y": 260
+          }
+        },
+        "floor_13_node_43": {
+          "id": "floor_13_node_43",
+          "type_id": "shop",
+          "floor_index": 13,
+          "column_index": 0,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 220,
+            "y": 160
+          }
+        },
+        "floor_13_node_44": {
+          "id": "floor_13_node_44",
+          "type_id": "hermit",
+          "floor_index": 13,
+          "column_index": 1,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 340,
+            "y": 160
+          }
+        },
+        "floor_13_node_45": {
+          "id": "floor_13_node_45",
+          "type_id": "rest",
+          "floor_index": 13,
+          "column_index": 2,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 460,
+            "y": 160
+          },
+          "produce_cards": [
+            {
+              "type": "寿元",
+              "count": 20
+            }
+          ]
+        },
+        "floor_13_node_46": {
+          "id": "floor_13_node_46",
+          "type_id": "dojo",
+          "floor_index": 13,
+          "column_index": 3,
+          "connections": [
+            "boss_0"
+          ],
+          "position": {
+            "x": 580,
+            "y": 160
+          },
+          "dojo_name": "烈焰武馆",
+          "consume_cards": [
+            {
+              "type": "银两",
+              "count": 5
+            },
+            {
+              "type": "寿元",
+              "count": 1
+            }
+          ],
+          "produce_cards": [
+            {
+              "type": "功法",
+              "count": 1,
+              "gongfaId": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+              "gainExp": 30
+            }
+          ]
+        },
+        "boss_0": {
+          "id": "boss_0",
+          "type_id": "boss",
+          "floor_index": 14,
+          "column_index": 0,
+          "connections": [],
+          "position": {
+            "x": 400,
+            "y": 60
+          }
+        }
+      },
+      "start_id": "start_0",
+      "boss_id": "boss_0"
+    }
+  }
+]

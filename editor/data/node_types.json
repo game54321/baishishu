@@ -1,0 +1,313 @@
+[
+  {
+    "id": "combat",
+    "label": "战",
+    "name": "战斗",
+    "category": "combat",
+    "color": "#D9A65A",
+    "weight": 0.35,
+    "minFloor": 0,
+    "maxFloor": -1,
+    "maxPerMap": -1,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "produceCards": []
+  },
+  {
+    "id": "elite",
+    "label": "精",
+    "name": "精英",
+    "category": "combat",
+    "color": "#E64040",
+    "weight": 0.08,
+    "minFloor": 2,
+    "maxFloor": -1,
+    "maxPerMap": 5,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 2
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "银两",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "id": "rest",
+    "label": "休",
+    "name": "休息",
+    "category": "rest",
+    "color": "#4DBF66",
+    "weight": 0.08,
+    "minFloor": 0,
+    "maxFloor": -1,
+    "maxPerMap": -1,
+    "requireCards": [],
+    "consumeCards": [],
+    "produceCards": [
+      {
+        "type": "寿元",
+        "count": 20
+      }
+    ]
+  },
+  {
+    "id": "shop",
+    "label": "店",
+    "name": "商店",
+    "category": "shop",
+    "color": "#4D8CE6",
+    "weight": 0.06,
+    "minFloor": 1,
+    "maxFloor": -1,
+    "maxPerMap": 3,
+    "requireCards": [
+      {
+        "type": "银两",
+        "count": 5
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "银两",
+        "count": 5
+      }
+    ],
+    "produceCards": []
+  },
+  {
+    "id": "event",
+    "label": "?",
+    "name": "事件",
+    "category": "story",
+    "color": "#B366D9",
+    "weight": 0.08,
+    "minFloor": 0,
+    "maxFloor": -1,
+    "maxPerMap": -1,
+    "requireCards": [],
+    "consumeCards": [],
+    "produceCards": []
+  },
+  {
+    "id": "boss",
+    "label": "B",
+    "name": "Boss",
+    "category": "combat",
+    "color": "#D9268C",
+    "weight": 0,
+    "minFloor": -1,
+    "maxFloor": -1,
+    "maxPerMap": 1,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 3
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "银两",
+        "count": 50
+      }
+    ]
+  },
+  {
+    "id": "start",
+    "label": "起",
+    "name": "起点",
+    "category": "start",
+    "color": "#999999",
+    "weight": 0,
+    "minFloor": -1,
+    "maxFloor": -1,
+    "maxPerMap": 1,
+    "requireCards": [],
+    "consumeCards": [],
+    "produceCards": [
+      {
+        "type": "寿元",
+        "count": 60
+      },
+      {
+        "type": "银两",
+        "count": 10
+      }
+    ]
+  },
+  {
+    "id": "dojo",
+    "label": "武",
+    "name": "武馆学武",
+    "category": "story",
+    "color": "#D97333",
+    "weight": 0.08,
+    "minFloor": 1,
+    "maxFloor": -1,
+    "maxPerMap": 3,
+    "requireCards": [
+      {
+        "type": "银两",
+        "count": 5
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "银两",
+        "count": 5
+      },
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "功法",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "tavern",
+    "label": "酒",
+    "name": "酒馆打工",
+    "category": "story",
+    "color": "#996633",
+    "weight": 0.08,
+    "minFloor": 1,
+    "maxFloor": -1,
+    "maxPerMap": 3,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 1
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "银两",
+        "count": 8
+      }
+    ]
+  },
+  {
+    "id": "temple",
+    "label": "禅",
+    "name": "古刹参禅",
+    "category": "story",
+    "color": "#8C8CD9",
+    "weight": 0.06,
+    "minFloor": 3,
+    "maxFloor": -1,
+    "maxPerMap": 2,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 2
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 2
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "寿元",
+        "count": 30
+      }
+    ]
+  },
+  {
+    "id": "blacksmith",
+    "label": "铁",
+    "name": "铁匠铺",
+    "category": "shop",
+    "color": "#B3804D",
+    "weight": 0.05,
+    "minFloor": 2,
+    "maxFloor": -1,
+    "maxPerMap": 2,
+    "requireCards": [
+      {
+        "type": "银两",
+        "count": 15
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "银两",
+        "count": 15
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "功法",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "hermit",
+    "label": "隐",
+    "name": "隐士指点",
+    "category": "story",
+    "color": "#66CCB2",
+    "weight": 0.04,
+    "minFloor": 4,
+    "maxFloor": -1,
+    "maxPerMap": 2,
+    "requireCards": [
+      {
+        "type": "寿元",
+        "count": 3
+      }
+    ],
+    "consumeCards": [
+      {
+        "type": "寿元",
+        "count": 3
+      }
+    ],
+    "produceCards": [
+      {
+        "type": "功法",
+        "count": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,1536 @@
+{
+  "floors": [
+    [
+      {
+        "id": "start_0",
+        "type_id": "start",
+        "floor_index": 0,
+        "column_index": 0,
+        "connections": [
+          "floor_1_node_2",
+          "floor_1_node_1",
+          "floor_1_node_0"
+        ],
+        "position": {
+          "x": 380,
+          "y": 1500
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_1_node_0",
+        "type_id": "rest",
+        "floor_index": 1,
+        "column_index": 0,
+        "connections": [
+          "floor_2_node_0"
+        ],
+        "position": {
+          "x": 260,
+          "y": 1400
+        }
+      },
+      {
+        "id": "floor_1_node_1",
+        "type_id": "combat",
+        "floor_index": 1,
+        "column_index": 1,
+        "connections": [
+          "floor_2_node_1",
+          "floor_2_node_0"
+        ],
+        "position": {
+          "x": 380,
+          "y": 1400
+        }
+      },
+      {
+        "id": "floor_1_node_2",
+        "type_id": "tavern",
+        "floor_index": 1,
+        "column_index": 2,
+        "connections": [
+          "floor_2_node_2",
+          "floor_2_node_3"
+        ],
+        "position": {
+          "x": 500,
+          "y": 1400
+        },
+        "work_name": "酒馆111",
+        "consume_cards": [
+          {
+            "type": "寿元",
+            "count": 1
+          }
+        ],
+        "produce_cards": [
+          {
+            "type": "银两",
+            "count": 1
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": "floor_2_node_0",
+        "type_id": "blacksmith",
+        "floor_index": 2,
+        "column_index": 0,
+        "connections": [
+          "floor_3_node_0",
+          "floor_3_node_1"
+        ],
+        "position": {
+          "x": 200,
+          "y": 1300
+        }
+      },
+      {
+        "id": "floor_2_node_1",
+        "type_id": "dojo",
+        "floor_index": 2,
+        "column_index": 1,
+        "connections": [
+          "floor_3_node_1",
+          "floor_3_node_0",
+          "floor_3_node_2"
+        ],
+        "position": {
+          "x": 320,
+          "y": 1300
+        }
+      },
+      {
+        "id": "floor_2_node_2",
+        "type_id": "dojo",
+        "floor_index": 2,
+        "column_index": 2,
+        "connections": [
+          "floor_3_node_2"
+        ],
+        "position": {
+          "x": 440,
+          "y": 1300
+        }
+      },
+      {
+        "id": "floor_2_node_3",
+        "type_id": "combat",
+        "floor_index": 2,
+        "column_index": 3,
+        "connections": [
+          "floor_3_node_3",
+          "floor_3_node_2",
+          "floor_3_node_4"
+        ],
+        "position": {
+          "x": 560,
+          "y": 1300
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_3_node_0",
+        "type_id": "rest",
+        "floor_index": 3,
+        "column_index": 0,
+        "connections": [
+          "floor_4_node_0",
+          "floor_4_node_1"
+        ],
+        "position": {
+          "x": 140,
+          "y": 1200
+        }
+      },
+      {
+        "id": "floor_3_node_1",
+        "type_id": "rest",
+        "floor_index": 3,
+        "column_index": 1,
+        "connections": [
+          "floor_4_node_1",
+          "floor_4_node_0",
+          "floor_4_node_2"
+        ],
+        "position": {
+          "x": 260,
+          "y": 1200
+        }
+      },
+      {
+        "id": "floor_3_node_2",
+        "type_id": "event",
+        "floor_index": 3,
+        "column_index": 2,
+        "connections": [
+          "floor_4_node_2"
+        ],
+        "position": {
+          "x": 380,
+          "y": 1200
+        }
+      },
+      {
+        "id": "floor_3_node_3",
+        "type_id": "combat",
+        "floor_index": 3,
+        "column_index": 3,
+        "connections": [
+          "floor_4_node_3"
+        ],
+        "position": {
+          "x": 500,
+          "y": 1200
+        }
+      },
+      {
+        "id": "floor_3_node_4",
+        "type_id": "blacksmith",
+        "floor_index": 3,
+        "column_index": 4,
+        "connections": [
+          "floor_4_node_4",
+          "floor_4_node_3"
+        ],
+        "position": {
+          "x": 620,
+          "y": 1200
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_4_node_0",
+        "type_id": "tavern",
+        "floor_index": 4,
+        "column_index": 0,
+        "connections": [
+          "floor_5_node_0"
+        ],
+        "position": {
+          "x": 140,
+          "y": 1100
+        }
+      },
+      {
+        "id": "floor_4_node_1",
+        "type_id": "combat",
+        "floor_index": 4,
+        "column_index": 1,
+        "connections": [
+          "floor_5_node_1",
+          "floor_5_node_0"
+        ],
+        "position": {
+          "x": 260,
+          "y": 1100
+        }
+      },
+      {
+        "id": "floor_4_node_2",
+        "type_id": "combat",
+        "floor_index": 4,
+        "column_index": 2,
+        "connections": [
+          "floor_5_node_2"
+        ],
+        "position": {
+          "x": 380,
+          "y": 1100
+        }
+      },
+      {
+        "id": "floor_4_node_3",
+        "type_id": "blacksmith",
+        "floor_index": 4,
+        "column_index": 3,
+        "connections": [
+          "floor_5_node_3",
+          "floor_5_node_2",
+          "floor_5_node_1"
+        ],
+        "position": {
+          "x": 500,
+          "y": 1100
+        }
+      },
+      {
+        "id": "floor_4_node_4",
+        "type_id": "combat",
+        "floor_index": 4,
+        "column_index": 4,
+        "connections": [
+          "floor_5_node_3",
+          "floor_5_node_2",
+          "floor_5_node_1"
+        ],
+        "position": {
+          "x": 620,
+          "y": 1100
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_5_node_0",
+        "type_id": "shop",
+        "floor_index": 5,
+        "column_index": 0,
+        "connections": [
+          "floor_6_node_0",
+          "floor_6_node_1",
+          "floor_6_node_2"
+        ],
+        "position": {
+          "x": 200,
+          "y": 1000
+        }
+      },
+      {
+        "id": "floor_5_node_1",
+        "type_id": "combat",
+        "floor_index": 5,
+        "column_index": 1,
+        "connections": [
+          "floor_6_node_1",
+          "floor_6_node_0",
+          "floor_6_node_2"
+        ],
+        "position": {
+          "x": 320,
+          "y": 1000
+        }
+      },
+      {
+        "id": "floor_5_node_2",
+        "type_id": "combat",
+        "floor_index": 5,
+        "column_index": 2,
+        "connections": [
+          "floor_6_node_2",
+          "floor_6_node_1"
+        ],
+        "position": {
+          "x": 440,
+          "y": 1000
+        }
+      },
+      {
+        "id": "floor_5_node_3",
+        "type_id": "event",
+        "floor_index": 5,
+        "column_index": 3,
+        "connections": [
+          "floor_6_node_2",
+          "floor_6_node_1"
+        ],
+        "position": {
+          "x": 560,
+          "y": 1000
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_6_node_0",
+        "type_id": "temple",
+        "floor_index": 6,
+        "column_index": 0,
+        "connections": [
+          "floor_7_node_0",
+          "floor_7_node_1"
+        ],
+        "position": {
+          "x": 260,
+          "y": 900
+        }
+      },
+      {
+        "id": "floor_6_node_1",
+        "type_id": "shop",
+        "floor_index": 6,
+        "column_index": 1,
+        "connections": [
+          "floor_7_node_1"
+        ],
+        "position": {
+          "x": 380,
+          "y": 900
+        }
+      },
+      {
+        "id": "floor_6_node_2",
+        "type_id": "combat",
+        "floor_index": 6,
+        "column_index": 2,
+        "connections": [
+          "floor_7_node_2",
+          "floor_7_node_1",
+          "floor_7_node_3"
+        ],
+        "position": {
+          "x": 500,
+          "y": 900
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_7_node_0",
+        "type_id": "rest",
+        "floor_index": 7,
+        "column_index": 0,
+        "connections": [
+          "floor_8_node_0",
+          "floor_8_node_1"
+        ],
+        "position": {
+          "x": 200,
+          "y": 800
+        }
+      },
+      {
+        "id": "floor_7_node_1",
+        "type_id": "tavern",
+        "floor_index": 7,
+        "column_index": 1,
+        "connections": [
+          "floor_8_node_1",
+          "floor_8_node_0"
+        ],
+        "position": {
+          "x": 320,
+          "y": 800
+        }
+      },
+      {
+        "id": "floor_7_node_2",
+        "type_id": "event",
+        "floor_index": 7,
+        "column_index": 2,
+        "connections": [
+          "floor_8_node_2"
+        ],
+        "position": {
+          "x": 440,
+          "y": 800
+        }
+      },
+      {
+        "id": "floor_7_node_3",
+        "type_id": "elite",
+        "floor_index": 7,
+        "column_index": 3,
+        "connections": [
+          "floor_8_node_3",
+          "floor_8_node_2",
+          "floor_8_node_1"
+        ],
+        "position": {
+          "x": 560,
+          "y": 800
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_8_node_0",
+        "type_id": "combat",
+        "floor_index": 8,
+        "column_index": 0,
+        "connections": [
+          "floor_9_node_0",
+          "floor_9_node_1",
+          "floor_9_node_2"
+        ],
+        "position": {
+          "x": 200,
+          "y": 700
+        }
+      },
+      {
+        "id": "floor_8_node_1",
+        "type_id": "combat",
+        "floor_index": 8,
+        "column_index": 1,
+        "connections": [
+          "floor_9_node_1",
+          "floor_9_node_0"
+        ],
+        "position": {
+          "x": 320,
+          "y": 700
+        }
+      },
+      {
+        "id": "floor_8_node_2",
+        "type_id": "event",
+        "floor_index": 8,
+        "column_index": 2,
+        "connections": [
+          "floor_9_node_2",
+          "floor_9_node_1"
+        ],
+        "position": {
+          "x": 440,
+          "y": 700
+        }
+      },
+      {
+        "id": "floor_8_node_3",
+        "type_id": "combat",
+        "floor_index": 8,
+        "column_index": 3,
+        "connections": [
+          "floor_9_node_2"
+        ],
+        "position": {
+          "x": 560,
+          "y": 700
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_9_node_0",
+        "type_id": "elite",
+        "floor_index": 9,
+        "column_index": 0,
+        "connections": [
+          "floor_10_node_0"
+        ],
+        "position": {
+          "x": 260,
+          "y": 600
+        }
+      },
+      {
+        "id": "floor_9_node_1",
+        "type_id": "event",
+        "floor_index": 9,
+        "column_index": 1,
+        "connections": [
+          "floor_10_node_1",
+          "floor_10_node_0",
+          "floor_10_node_2"
+        ],
+        "position": {
+          "x": 380,
+          "y": 600
+        }
+      },
+      {
+        "id": "floor_9_node_2",
+        "type_id": "combat",
+        "floor_index": 9,
+        "column_index": 2,
+        "connections": [
+          "floor_10_node_2",
+          "floor_10_node_3"
+        ],
+        "position": {
+          "x": 500,
+          "y": 600
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_10_node_0",
+        "type_id": "combat",
+        "floor_index": 10,
+        "column_index": 0,
+        "connections": [
+          "floor_11_node_0"
+        ],
+        "position": {
+          "x": 200,
+          "y": 500
+        }
+      },
+      {
+        "id": "floor_10_node_1",
+        "type_id": "hermit",
+        "floor_index": 10,
+        "column_index": 1,
+        "connections": [
+          "floor_11_node_1",
+          "floor_11_node_0"
+        ],
+        "position": {
+          "x": 320,
+          "y": 500
+        }
+      },
+      {
+        "id": "floor_10_node_2",
+        "type_id": "rest",
+        "floor_index": 10,
+        "column_index": 2,
+        "connections": [
+          "floor_11_node_2"
+        ],
+        "position": {
+          "x": 440,
+          "y": 500
+        }
+      },
+      {
+        "id": "floor_10_node_3",
+        "type_id": "elite",
+        "floor_index": 10,
+        "column_index": 3,
+        "connections": [
+          "floor_11_node_3",
+          "floor_11_node_4"
+        ],
+        "position": {
+          "x": 560,
+          "y": 500
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_11_node_0",
+        "type_id": "tavern",
+        "floor_index": 11,
+        "column_index": 0,
+        "connections": [
+          "floor_12_node_0",
+          "floor_12_node_1"
+        ],
+        "position": {
+          "x": 140,
+          "y": 400
+        }
+      },
+      {
+        "id": "floor_11_node_1",
+        "type_id": "elite",
+        "floor_index": 11,
+        "column_index": 1,
+        "connections": [
+          "floor_12_node_1"
+        ],
+        "position": {
+          "x": 260,
+          "y": 400
+        }
+      },
+      {
+        "id": "floor_11_node_2",
+        "type_id": "event",
+        "floor_index": 11,
+        "column_index": 2,
+        "connections": [
+          "floor_12_node_2",
+          "floor_12_node_1"
+        ],
+        "position": {
+          "x": 380,
+          "y": 400
+        }
+      },
+      {
+        "id": "floor_11_node_3",
+        "type_id": "rest",
+        "floor_index": 11,
+        "column_index": 3,
+        "connections": [
+          "floor_12_node_3",
+          "floor_12_node_2",
+          "floor_12_node_1"
+        ],
+        "position": {
+          "x": 500,
+          "y": 400
+        }
+      },
+      {
+        "id": "floor_11_node_4",
+        "type_id": "event",
+        "floor_index": 11,
+        "column_index": 4,
+        "connections": [
+          "floor_12_node_3",
+          "floor_12_node_2",
+          "floor_12_node_1"
+        ],
+        "position": {
+          "x": 620,
+          "y": 400
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_12_node_0",
+        "type_id": "rest",
+        "floor_index": 12,
+        "column_index": 0,
+        "connections": [
+          "floor_13_node_0"
+        ],
+        "position": {
+          "x": 200,
+          "y": 300
+        }
+      },
+      {
+        "id": "floor_12_node_1",
+        "type_id": "combat",
+        "floor_index": 12,
+        "column_index": 1,
+        "connections": [
+          "floor_13_node_1",
+          "floor_13_node_0"
+        ],
+        "position": {
+          "x": 320,
+          "y": 300
+        }
+      },
+      {
+        "id": "floor_12_node_2",
+        "type_id": "event",
+        "floor_index": 12,
+        "column_index": 2,
+        "connections": [
+          "floor_13_node_2"
+        ],
+        "position": {
+          "x": 440,
+          "y": 300
+        }
+      },
+      {
+        "id": "floor_12_node_3",
+        "type_id": "elite",
+        "floor_index": 12,
+        "column_index": 3,
+        "connections": [
+          "floor_13_node_2",
+          "floor_13_node_1",
+          "floor_13_node_0"
+        ],
+        "position": {
+          "x": 560,
+          "y": 300
+        }
+      }
+    ],
+    [
+      {
+        "id": "floor_13_node_0",
+        "type_id": "elite",
+        "floor_index": 13,
+        "column_index": 0,
+        "connections": [
+          "boss_0"
+        ],
+        "position": {
+          "x": 260,
+          "y": 200
+        }
+      },
+      {
+        "id": "floor_13_node_1",
+        "type_id": "blacksmith",
+        "floor_index": 13,
+        "column_index": 1,
+        "connections": [
+          "boss_0"
+        ],
+        "position": {
+          "x": 380,
+          "y": 200
+        }
+      },
+      {
+        "id": "floor_13_node_2",
+        "type_id": "event",
+        "floor_index": 13,
+        "column_index": 2,
+        "connections": [
+          "boss_0"
+        ],
+        "position": {
+          "x": 500,
+          "y": 200
+        }
+      }
+    ],
+    [
+      {
+        "id": "boss_0",
+        "type_id": "boss",
+        "floor_index": 14,
+        "column_index": 0,
+        "connections": [],
+        "position": {
+          "x": 380,
+          "y": 100
+        }
+      }
+    ]
+  ],
+  "all_nodes": {
+    "start_0": {
+      "id": "start_0",
+      "type_id": "start",
+      "floor_index": 0,
+      "column_index": 0,
+      "connections": [
+        "floor_1_node_2",
+        "floor_1_node_1",
+        "floor_1_node_0"
+      ],
+      "position": {
+        "x": 380,
+        "y": 1500
+      }
+    },
+    "floor_1_node_0": {
+      "id": "floor_1_node_0",
+      "type_id": "rest",
+      "floor_index": 1,
+      "column_index": 0,
+      "connections": [
+        "floor_2_node_0"
+      ],
+      "position": {
+        "x": 260,
+        "y": 1400
+      }
+    },
+    "floor_1_node_1": {
+      "id": "floor_1_node_1",
+      "type_id": "combat",
+      "floor_index": 1,
+      "column_index": 1,
+      "connections": [
+        "floor_2_node_1",
+        "floor_2_node_0"
+      ],
+      "position": {
+        "x": 380,
+        "y": 1400
+      }
+    },
+    "floor_1_node_2": {
+      "id": "floor_1_node_2",
+      "type_id": "tavern",
+      "floor_index": 1,
+      "column_index": 2,
+      "connections": [
+        "floor_2_node_2",
+        "floor_2_node_3"
+      ],
+      "position": {
+        "x": 500,
+        "y": 1400
+      },
+      "work_name": "酒馆111",
+      "consume_cards": [
+        {
+          "type": "寿元",
+          "count": 1
+        }
+      ],
+      "produce_cards": [
+        {
+          "type": "银两",
+          "count": 1
+        }
+      ]
+    },
+    "floor_2_node_0": {
+      "id": "floor_2_node_0",
+      "type_id": "blacksmith",
+      "floor_index": 2,
+      "column_index": 0,
+      "connections": [
+        "floor_3_node_0",
+        "floor_3_node_1"
+      ],
+      "position": {
+        "x": 200,
+        "y": 1300
+      }
+    },
+    "floor_2_node_1": {
+      "id": "floor_2_node_1",
+      "type_id": "dojo",
+      "floor_index": 2,
+      "column_index": 1,
+      "connections": [
+        "floor_3_node_1",
+        "floor_3_node_0",
+        "floor_3_node_2"
+      ],
+      "position": {
+        "x": 320,
+        "y": 1300
+      }
+    },
+    "floor_2_node_2": {
+      "id": "floor_2_node_2",
+      "type_id": "dojo",
+      "floor_index": 2,
+      "column_index": 2,
+      "connections": [
+        "floor_3_node_2"
+      ],
+      "position": {
+        "x": 440,
+        "y": 1300
+      }
+    },
+    "floor_2_node_3": {
+      "id": "floor_2_node_3",
+      "type_id": "combat",
+      "floor_index": 2,
+      "column_index": 3,
+      "connections": [
+        "floor_3_node_3",
+        "floor_3_node_2",
+        "floor_3_node_4"
+      ],
+      "position": {
+        "x": 560,
+        "y": 1300
+      }
+    },
+    "floor_3_node_0": {
+      "id": "floor_3_node_0",
+      "type_id": "rest",
+      "floor_index": 3,
+      "column_index": 0,
+      "connections": [
+        "floor_4_node_0",
+        "floor_4_node_1"
+      ],
+      "position": {
+        "x": 140,
+        "y": 1200
+      }
+    },
+    "floor_3_node_1": {
+      "id": "floor_3_node_1",
+      "type_id": "rest",
+      "floor_index": 3,
+      "column_index": 1,
+      "connections": [
+        "floor_4_node_1",
+        "floor_4_node_0",
+        "floor_4_node_2"
+      ],
+      "position": {
+        "x": 260,
+        "y": 1200
+      }
+    },
+    "floor_3_node_2": {
+      "id": "floor_3_node_2",
+      "type_id": "event",
+      "floor_index": 3,
+      "column_index": 2,
+      "connections": [
+        "floor_4_node_2"
+      ],
+      "position": {
+        "x": 380,
+        "y": 1200
+      }
+    },
+    "floor_3_node_3": {
+      "id": "floor_3_node_3",
+      "type_id": "combat",
+      "floor_index": 3,
+      "column_index": 3,
+      "connections": [
+        "floor_4_node_3"
+      ],
+      "position": {
+        "x": 500,
+        "y": 1200
+      }
+    },
+    "floor_3_node_4": {
+      "id": "floor_3_node_4",
+      "type_id": "blacksmith",
+      "floor_index": 3,
+      "column_index": 4,
+      "connections": [
+        "floor_4_node_4",
+        "floor_4_node_3"
+      ],
+      "position": {
+        "x": 620,
+        "y": 1200
+      }
+    },
+    "floor_4_node_0": {
+      "id": "floor_4_node_0",
+      "type_id": "tavern",
+      "floor_index": 4,
+      "column_index": 0,
+      "connections": [
+        "floor_5_node_0"
+      ],
+      "position": {
+        "x": 140,
+        "y": 1100
+      }
+    },
+    "floor_4_node_1": {
+      "id": "floor_4_node_1",
+      "type_id": "combat",
+      "floor_index": 4,
+      "column_index": 1,
+      "connections": [
+        "floor_5_node_1",
+        "floor_5_node_0"
+      ],
+      "position": {
+        "x": 260,
+        "y": 1100
+      }
+    },
+    "floor_4_node_2": {
+      "id": "floor_4_node_2",
+      "type_id": "combat",
+      "floor_index": 4,
+      "column_index": 2,
+      "connections": [
+        "floor_5_node_2"
+      ],
+      "position": {
+        "x": 380,
+        "y": 1100
+      }
+    },
+    "floor_4_node_3": {
+      "id": "floor_4_node_3",
+      "type_id": "blacksmith",
+      "floor_index": 4,
+      "column_index": 3,
+      "connections": [
+        "floor_5_node_3",
+        "floor_5_node_2",
+        "floor_5_node_1"
+      ],
+      "position": {
+        "x": 500,
+        "y": 1100
+      }
+    },
+    "floor_4_node_4": {
+      "id": "floor_4_node_4",
+      "type_id": "combat",
+      "floor_index": 4,
+      "column_index": 4,
+      "connections": [
+        "floor_5_node_3",
+        "floor_5_node_2",
+        "floor_5_node_1"
+      ],
+      "position": {
+        "x": 620,
+        "y": 1100
+      }
+    },
+    "floor_5_node_0": {
+      "id": "floor_5_node_0",
+      "type_id": "shop",
+      "floor_index": 5,
+      "column_index": 0,
+      "connections": [
+        "floor_6_node_0",
+        "floor_6_node_1",
+        "floor_6_node_2"
+      ],
+      "position": {
+        "x": 200,
+        "y": 1000
+      }
+    },
+    "floor_5_node_1": {
+      "id": "floor_5_node_1",
+      "type_id": "combat",
+      "floor_index": 5,
+      "column_index": 1,
+      "connections": [
+        "floor_6_node_1",
+        "floor_6_node_0",
+        "floor_6_node_2"
+      ],
+      "position": {
+        "x": 320,
+        "y": 1000
+      }
+    },
+    "floor_5_node_2": {
+      "id": "floor_5_node_2",
+      "type_id": "combat",
+      "floor_index": 5,
+      "column_index": 2,
+      "connections": [
+        "floor_6_node_2",
+        "floor_6_node_1"
+      ],
+      "position": {
+        "x": 440,
+        "y": 1000
+      }
+    },
+    "floor_5_node_3": {
+      "id": "floor_5_node_3",
+      "type_id": "event",
+      "floor_index": 5,
+      "column_index": 3,
+      "connections": [
+        "floor_6_node_2",
+        "floor_6_node_1"
+      ],
+      "position": {
+        "x": 560,
+        "y": 1000
+      }
+    },
+    "floor_6_node_0": {
+      "id": "floor_6_node_0",
+      "type_id": "temple",
+      "floor_index": 6,
+      "column_index": 0,
+      "connections": [
+        "floor_7_node_0",
+        "floor_7_node_1"
+      ],
+      "position": {
+        "x": 260,
+        "y": 900
+      }
+    },
+    "floor_6_node_1": {
+      "id": "floor_6_node_1",
+      "type_id": "shop",
+      "floor_index": 6,
+      "column_index": 1,
+      "connections": [
+        "floor_7_node_1"
+      ],
+      "position": {
+        "x": 380,
+        "y": 900
+      }
+    },
+    "floor_6_node_2": {
+      "id": "floor_6_node_2",
+      "type_id": "combat",
+      "floor_index": 6,
+      "column_index": 2,
+      "connections": [
+        "floor_7_node_2",
+        "floor_7_node_1",
+        "floor_7_node_3"
+      ],
+      "position": {
+        "x": 500,
+        "y": 900
+      }
+    },
+    "floor_7_node_0": {
+      "id": "floor_7_node_0",
+      "type_id": "rest",
+      "floor_index": 7,
+      "column_index": 0,
+      "connections": [
+        "floor_8_node_0",
+        "floor_8_node_1"
+      ],
+      "position": {
+        "x": 200,
+        "y": 800
+      }
+    },
+    "floor_7_node_1": {
+      "id": "floor_7_node_1",
+      "type_id": "tavern",
+      "floor_index": 7,
+      "column_index": 1,
+      "connections": [
+        "floor_8_node_1",
+        "floor_8_node_0"
+      ],
+      "position": {
+        "x": 320,
+        "y": 800
+      }
+    },
+    "floor_7_node_2": {
+      "id": "floor_7_node_2",
+      "type_id": "event",
+      "floor_index": 7,
+      "column_index": 2,
+      "connections": [
+        "floor_8_node_2"
+      ],
+      "position": {
+        "x": 440,
+        "y": 800
+      }
+    },
+    "floor_7_node_3": {
+      "id": "floor_7_node_3",
+      "type_id": "elite",
+      "floor_index": 7,
+      "column_index": 3,
+      "connections": [
+        "floor_8_node_3",
+        "floor_8_node_2",
+        "floor_8_node_1"
+      ],
+      "position": {
+        "x": 560,
+        "y": 800
+      }
+    },
+    "floor_8_node_0": {
+      "id": "floor_8_node_0",
+      "type_id": "combat",
+      "floor_index": 8,
+      "column_index": 0,
+      "connections": [
+        "floor_9_node_0",
+        "floor_9_node_1",
+        "floor_9_node_2"
+      ],
+      "position": {
+        "x": 200,
+        "y": 700
+      }
+    },
+    "floor_8_node_1": {
+      "id": "floor_8_node_1",
+      "type_id": "combat",
+      "floor_index": 8,
+      "column_index": 1,
+      "connections": [
+        "floor_9_node_1",
+        "floor_9_node_0"
+      ],
+      "position": {
+        "x": 320,
+        "y": 700
+      }
+    },
+    "floor_8_node_2": {
+      "id": "floor_8_node_2",
+      "type_id": "event",
+      "floor_index": 8,
+      "column_index": 2,
+      "connections": [
+        "floor_9_node_2",
+        "floor_9_node_1"
+      ],
+      "position": {
+        "x": 440,
+        "y": 700
+      }
+    },
+    "floor_8_node_3": {
+      "id": "floor_8_node_3",
+      "type_id": "combat",
+      "floor_index": 8,
+      "column_index": 3,
+      "connections": [
+        "floor_9_node_2"
+      ],
+      "position": {
+        "x": 560,
+        "y": 700
+      }
+    },
+    "floor_9_node_0": {
+      "id": "floor_9_node_0",
+      "type_id": "elite",
+      "floor_index": 9,
+      "column_index": 0,
+      "connections": [
+        "floor_10_node_0"
+      ],
+      "position": {
+        "x": 260,
+        "y": 600
+      }
+    },
+    "floor_9_node_1": {
+      "id": "floor_9_node_1",
+      "type_id": "event",
+      "floor_index": 9,
+      "column_index": 1,
+      "connections": [
+        "floor_10_node_1",
+        "floor_10_node_0",
+        "floor_10_node_2"
+      ],
+      "position": {
+        "x": 380,
+        "y": 600
+      }
+    },
+    "floor_9_node_2": {
+      "id": "floor_9_node_2",
+      "type_id": "combat",
+      "floor_index": 9,
+      "column_index": 2,
+      "connections": [
+        "floor_10_node_2",
+        "floor_10_node_3"
+      ],
+      "position": {
+        "x": 500,
+        "y": 600
+      }
+    },
+    "floor_10_node_0": {
+      "id": "floor_10_node_0",
+      "type_id": "combat",
+      "floor_index": 10,
+      "column_index": 0,
+      "connections": [
+        "floor_11_node_0"
+      ],
+      "position": {
+        "x": 200,
+        "y": 500
+      }
+    },
+    "floor_10_node_1": {
+      "id": "floor_10_node_1",
+      "type_id": "hermit",
+      "floor_index": 10,
+      "column_index": 1,
+      "connections": [
+        "floor_11_node_1",
+        "floor_11_node_0"
+      ],
+      "position": {
+        "x": 320,
+        "y": 500
+      }
+    },
+    "floor_10_node_2": {
+      "id": "floor_10_node_2",
+      "type_id": "rest",
+      "floor_index": 10,
+      "column_index": 2,
+      "connections": [
+        "floor_11_node_2"
+      ],
+      "position": {
+        "x": 440,
+        "y": 500
+      }
+    },
+    "floor_10_node_3": {
+      "id": "floor_10_node_3",
+      "type_id": "elite",
+      "floor_index": 10,
+      "column_index": 3,
+      "connections": [
+        "floor_11_node_3",
+        "floor_11_node_4"
+      ],
+      "position": {
+        "x": 560,
+        "y": 500
+      }
+    },
+    "floor_11_node_0": {
+      "id": "floor_11_node_0",
+      "type_id": "tavern",
+      "floor_index": 11,
+      "column_index": 0,
+      "connections": [
+        "floor_12_node_0",
+        "floor_12_node_1"
+      ],
+      "position": {
+        "x": 140,
+        "y": 400
+      }
+    },
+    "floor_11_node_1": {
+      "id": "floor_11_node_1",
+      "type_id": "elite",
+      "floor_index": 11,
+      "column_index": 1,
+      "connections": [
+        "floor_12_node_1"
+      ],
+      "position": {
+        "x": 260,
+        "y": 400
+      }
+    },
+    "floor_11_node_2": {
+      "id": "floor_11_node_2",
+      "type_id": "event",
+      "floor_index": 11,
+      "column_index": 2,
+      "connections": [
+        "floor_12_node_2",
+        "floor_12_node_1"
+      ],
+      "position": {
+        "x": 380,
+        "y": 400
+      }
+    },
+    "floor_11_node_3": {
+      "id": "floor_11_node_3",
+      "type_id": "rest",
+      "floor_index": 11,
+      "column_index": 3,
+      "connections": [
+        "floor_12_node_3",
+        "floor_12_node_2",
+        "floor_12_node_1"
+      ],
+      "position": {
+        "x": 500,
+        "y": 400
+      }
+    },
+    "floor_11_node_4": {
+      "id": "floor_11_node_4",
+      "type_id": "event",
+      "floor_index": 11,
+      "column_index": 4,
+      "connections": [
+        "floor_12_node_3",
+        "floor_12_node_2",
+        "floor_12_node_1"
+      ],
+      "position": {
+        "x": 620,
+        "y": 400
+      }
+    },
+    "floor_12_node_0": {
+      "id": "floor_12_node_0",
+      "type_id": "rest",
+      "floor_index": 12,
+      "column_index": 0,
+      "connections": [
+        "floor_13_node_0"
+      ],
+      "position": {
+        "x": 200,
+        "y": 300
+      }
+    },
+    "floor_12_node_1": {
+      "id": "floor_12_node_1",
+      "type_id": "combat",
+      "floor_index": 12,
+      "column_index": 1,
+      "connections": [
+        "floor_13_node_1",
+        "floor_13_node_0"
+      ],
+      "position": {
+        "x": 320,
+        "y": 300
+      }
+    },
+    "floor_12_node_2": {
+      "id": "floor_12_node_2",
+      "type_id": "event",
+      "floor_index": 12,
+      "column_index": 2,
+      "connections": [
+        "floor_13_node_2"
+      ],
+      "position": {
+        "x": 440,
+        "y": 300
+      }
+    },
+    "floor_12_node_3": {
+      "id": "floor_12_node_3",
+      "type_id": "elite",
+      "floor_index": 12,
+      "column_index": 3,
+      "connections": [
+        "floor_13_node_2",
+        "floor_13_node_1",
+        "floor_13_node_0"
+      ],
+      "position": {
+        "x": 560,
+        "y": 300
+      }
+    },
+    "floor_13_node_0": {
+      "id": "floor_13_node_0",
+      "type_id": "elite",
+      "floor_index": 13,
+      "column_index": 0,
+      "connections": [
+        "boss_0"
+      ],
+      "position": {
+        "x": 260,
+        "y": 200
+      }
+    },
+    "floor_13_node_1": {
+      "id": "floor_13_node_1",
+      "type_id": "blacksmith",
+      "floor_index": 13,
+      "column_index": 1,
+      "connections": [
+        "boss_0"
+      ],
+      "position": {
+        "x": 380,
+        "y": 200
+      }
+    },
+    "floor_13_node_2": {
+      "id": "floor_13_node_2",
+      "type_id": "event",
+      "floor_index": 13,
+      "column_index": 2,
+      "connections": [
+        "boss_0"
+      ],
+      "position": {
+        "x": 500,
+        "y": 200
+      }
+    },
+    "boss_0": {
+      "id": "boss_0",
+      "type_id": "boss",
+      "floor_index": 14,
+      "column_index": 0,
+      "connections": [],
+      "position": {
+        "x": 380,
+        "y": 100
+      }
+    }
+  },
+  "start_id": "start_0",
+  "boss_id": "boss_0"
+}

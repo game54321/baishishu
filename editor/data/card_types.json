@@ -1,0 +1,114 @@
+[
+  {
+    "id": "寿元",
+    "name": "寿元",
+    "desc": "一年寿命",
+    "icon": "⏳",
+    "icon_path": "res://assets/卡牌插图/时间.png",
+    "color": "#E8C872",
+    "category": "life",
+    "stackable": true,
+    "maxValue": 999999999,
+    "unit": "一年时间"
+  },
+  {
+    "id": "银两",
+    "name": "银两",
+    "desc": "通用货币",
+    "icon": "🪙",
+    "icon_path": "res://assets/卡牌插图/银两.png",
+    "color": "#C0C0C0",
+    "category": "currency",
+    "stackable": true,
+    "maxValue": 9999,
+    "unit": "两"
+  },
+  {
+    "id": "功法",
+    "name": "功法",
+    "desc": "武学功法",
+    "icon": "👊",
+    "color": "#D97333",
+    "category": "gongfa",
+    "stackable": false,
+    "maxValue": 1,
+    "levelNames": ["初学乍练", "略有小成", "驾轻就熟", "融会贯通", "炉火纯青", "登峰造极", "返璞归真"],
+    "gongfaList": [
+      {
+        "id": "wild-dog-fist",
+        "name": "野狗拳",
+        "icon": "🐕",
+        "baseDamage": 5,
+        "gainExp": 20
+      },
+      {
+        "id": "a3f7c1e2-4b8d-4f2a-9c6e-1d3b5a7f8e02",
+        "name": "牛魔拳",
+        "icon": "👊",
+        "baseDamage": 10,
+        "gainExp": 30
+      },
+      {
+        "id": "b5d9e3f1-2a7c-4e6b-8d4f-0c2a6e8b1d35",
+        "name": "青云剑诀",
+        "icon": "⚔️",
+        "baseDamage": 14,
+        "gainExp": 25
+      },
+      {
+        "id": "c7e1f2d3-5b9a-4c8d-2e6f-4a8c0d2e6b9a",
+        "name": "虎啸掌",
+        "icon": "🐾",
+        "baseDamage": 12,
+        "gainExp": 28
+      },
+      {
+        "id": "d9f3a4b5-6c0d-4e7a-1b9c-3d5e7f9a1b3c",
+        "name": "龙脊体修",
+        "icon": "🐉",
+        "baseDamage": 8,
+        "gainExp": 35
+      },
+      {
+        "id": "e1a5b6c7-8d2e-4f9b-0a3c-5b7d9e1f3a5c",
+        "name": "金刚不坏功",
+        "icon": "🛡️",
+        "baseDamage": 6,
+        "gainExp": 40
+      },
+      {
+        "id": "f2b6c8d9-0e4f-4a1c-2b5d-6c8e0f2a4b6d",
+        "name": "烈焰刀法",
+        "icon": "🔥",
+        "baseDamage": 16,
+        "gainExp": 22
+      },
+      {
+        "id": "a4c7d0e1-3f5a-4b2d-6e8c-0f1a3b5c7d9e",
+        "name": "寒霜指",
+        "icon": "❄️",
+        "baseDamage": 13,
+        "gainExp": 26
+      },
+      {
+        "id": "b5d8e1f2-4a6c-4d3e-7f9a-1b2c4d6e8f0a",
+        "name": "雷鸣步",
+        "icon": "⚡",
+        "baseDamage": 9,
+        "gainExp": 32
+      }
+    ]
+  },
+  {
+    "id": "武道",
+    "name": "武道境界",
+    "desc": "武道修行境界",
+    "icon": "🌀",
+    "color": "#CC9933",
+    "category": "wudao",
+    "stackable": false,
+    "maxValue": 1,
+    "realms": ["普通人", "不入流武者", "三流武者", "二流武者", "一流武者", "超一流武者", "先天", "宗师", "大宗师", "武圣"],
+    "realmExpRequired": [100, 200, 400, 800, 1600, 3200, 6400, 12800, 25600]
+  }
+]

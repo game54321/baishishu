@@ -1,0 +1,12 @@
+{
+  "id": "089731da",
+  "name": "新地图",
+  "numFloors": 15,
+  "minNodesPerFloor": 3,
+  "maxNodesPerFloor": 5,
+  "maxBranches": 3,
+  "nodes": [],
+  "connections": [],
+  "createdAt": "2026-06-08T10:05:10.708Z",
+  "updatedAt": "2026-06-08T10:05:10.708Z"
+}
